@@ -15,10 +15,10 @@ body
 
 iframe
 {
-    height: 40vw;
+    height: 60vh;
     max-height: 60vh;
-    width: 71vw;
-    max-width: 71vw;
+    width: 54vw;
+    max-width: 54vw;
 }
 
 #div1
@@ -46,7 +46,7 @@ iframe
     background-attachment: fixed;
     background-size: cover;
     
-    /*font-weight: 900;*/
+    font-weight: 900;
     font-size: 2.5vw;
     -webkit-text-stroke-width: 0.15vw;
     -webkit-text-stroke-color: black;
@@ -54,7 +54,7 @@ iframe
 
 #heading
 {
-    font-weight: bold;
+    font-weight: 900;
     font-size: 5vw;
 }
 
@@ -65,15 +65,16 @@ iframe
     grid-column-gap: 3%;
 }
 
-.infoImg, .info
+.infoImg
 {
     display: flex;
     align-items: center;
     vertical-align: middle;
+    justify-content: center;
 }
 
-.info {margin-right: 2.5vw;}
-.infoImg {justify-content: center;}
+.info {display: flex; height: 60vh; overflow: auto; vertical-align: middle;}
+.info div { width: 100%; margin: auto; margin-right: 3em;}
 
 .infoImg img
 {
@@ -92,8 +93,9 @@ iframe
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 3fr;
-    grid-gap: 3%;
+    grid-template-rows: 2fr 3fr;
+    grid-gap: 1%;
+    overflow: auto;
 }
 
 .contact
@@ -103,15 +105,23 @@ iframe
     align-items: center;
     justify-content: center;
     vertical-align: middle;
+    width: 100%;
+    margin: auto;
 }
+
+.contact h1 {font-weight: 900; font-size: 4em;}
 
 .message
 {
     display: flex;
-    align-items: right;
     justify-content: right;
     vertical-align: middle;
+    margin: auto;
+    margin-left: 0px;
+    margin-top: 0px;
 }
+
+.message span {float: center;}
 
 .div5
 {
@@ -121,7 +131,7 @@ iframe
     justify-content: space-between;
     margin-left: 5px;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Ubuntu", sans-serif;
     font-weight: bold;
     font-size: 1.5vh;
 }
@@ -200,11 +210,41 @@ iframe
 
 form div {display: table;}
 form div p {display: table-row;}
-form div p label {display: table-cell; vertical-align: top;}
-form div p input {display: table-cell; width: 100%;}
-#submitButt {float: right; background-color: white; font-size: 1.5vh; font-family: 'Montserrat', sans-serif;}
+form div p input {display: table-cell; width: 100%; font-family: "Nunito Sans", sans-serif;}
+#submitButt 
+{
+    float: right; 
+    background-color: white; 
+    font-family: 'Montserrat', sans-serif; 
+    border: none; 
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
 
 .address
 {
     text-align: center; 
+    margin: auto;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+
+.address span {float: center;}
+
+.address img
+{
+    width: 10%;
+    min-width: 5em;
+    height: auto;
+}
+
+.address h1 {font-weight: 900;}
+
+textarea
+{
+    height: 15vh;
+    min-height: 10em; 
+    width: 25vw;
+    min-width: 20em;
+    font-family: "Nunito Sans", sans-serif;
 }
