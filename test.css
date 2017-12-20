@@ -1,0 +1,210 @@
+body
+{
+    background-color: blanchedalmond;
+    /*background-image: url("Stephenson.png"), url("Stephenson.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: 50px, 96.25vw;
+    background-position-x: center, center;
+    background-attachment: fixed, fixed;*/
+    margin: 0;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+iframe
+{
+    height: 40vw;
+    max-height: 60vh;
+    width: 71vw;
+    max-width: 71vw;
+}
+
+#div1
+{
+    background-image: url("Stephenson.png");
+}
+
+#div3
+{
+    background-image: url("img.jpg");
+}
+
+#div1, #div3
+{
+    position: relative;
+    display: flex;
+    color: gold;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+    /*font-weight: 900;*/
+    font-size: 2.5vw;
+    -webkit-text-stroke-width: 0.15vw;
+    -webkit-text-stroke-color: black;
+}
+
+#heading
+{
+    font-weight: bold;
+    font-size: 5vw;
+}
+
+.div2
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 3%;
+}
+
+.infoImg, .info
+{
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.info {margin-right: 2.5vw;}
+.infoImg {justify-content: center;}
+
+.infoImg img
+{
+    max-width: 90%;
+    width: auto;
+    max-height: 90%;
+    height: 50vh;
+}
+
+.div2, .div4
+{
+    background-color: #D89C3D;
+}
+
+.div4
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    grid-gap: 3%;
+}
+
+.contact
+{
+    grid-column-end: span 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.message
+{
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    vertical-align: middle;
+}
+
+.div5
+{
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: space-between;
+    margin-left: 5px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.5vh;
+}
+
+.div5 img
+{
+    height: 80%;
+    width: auto;
+}
+
+.div5 button
+{
+    border: 0;
+    background: none;
+    box-shadow: none;
+}
+
+.navbar
+{
+    /*height: 30px;*/
+    overflow: hidden;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    width: 100%;
+}
+
+.navbar grid-item a
+{
+    color: white;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar grid-item a:hover
+{
+    color: gray;
+}
+
+.navbar grid-item img
+{
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    width: 67px;
+}
+
+.grid1
+{
+    margin-top: 46px;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 102vh 60vh 102vh 60vh 5vh;
+    grid-gap: 0px;
+}
+
+.navbar
+{
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+}
+
+.navbar grid-item
+{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-left: 5px;
+}
+
+form div {display: table;}
+form div p {display: table-row;}
+form div p label {display: table-cell; vertical-align: top;}
+form div p input {display: table-cell; width: 100%;}
+#submitButt {float: right; background-color: white; font-size: 1.5vh; font-family: 'Montserrat', sans-serif;}
+
+.address
+{
+    text-align: center; 
+}
