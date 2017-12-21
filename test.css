@@ -1,38 +1,68 @@
 body
 {
     background-color: blanchedalmond;
-    /*background-image: url("Stephenson.png"), url("Stephenson.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position-y: 50px, 96.25vw;
-    background-position-x: center, center;
-    background-attachment: fixed, fixed;*/
     margin: 0;
     height: 100%;
     font-family: 'Montserrat', sans-serif;
-    
 }
 
-#image img {background-color: blanchedalmond;}
-
-iframe
+/*---------------------------------------------------------------
+navigation header bar
+-----------------------------------------------------------------*/
+.navbar
 {
-    height: 33.75vw;
-    /*max-height: 60vh;*/
-    width: 60%;
-    /*max-width: 54vw;*/
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    overflow: hidden;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    width: 100%;
 }
-
-#div1
+.navbar grid-item a
 {
-    background-image: url("Stephenson.png");
+    color: white;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
-
-#div3
+.navbar grid-item a:hover {color: gray;}
+.navbar grid-item img
 {
-    background-image: url("background2.jpg");
+    background-color: blanchedalmond;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    width: 67px;
+}
+.navbar grid-item
+{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-left: 5px;
 }
 
+/*---------------------------------------------------------------
+Main body grid
+-----------------------------------------------------------------*/
+.grid1
+{
+    margin-top: 46px;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 102vh 60vh 102vh 60vh 5vh;
+    grid-gap: 0px;
+}
+
+/*---------------------------------------------------------------
+Division 1 - Main heading
+-----------------------------------------------------------------*/
 #div1, #div3
 {
     position: relative;
@@ -53,7 +83,7 @@ iframe
     -webkit-text-stroke-width: 0.15vw;
     -webkit-text-stroke-color: black;
 }
-
+#div1 {background-image: url("Stephenson.png");}
 #heading
 {
     font-weight: 900;
@@ -61,13 +91,16 @@ iframe
     color: #71A6DC;
 }
 
+/*---------------------------------------------------------------
+Division 2 - Informational blurb
+-----------------------------------------------------------------*/
+.div2, .div4 {background-color: #D89C3D;}
 .div2
 {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-column-gap: 3%;
 }
-
 .infoImg
 {
     display: flex;
@@ -75,10 +108,6 @@ iframe
     vertical-align: middle;
     justify-content: center;
 }
-
-.info {display: flex; height: 60vh; overflow: auto; vertical-align: middle; margin-top: 1em; margin-bottom: 1em;}
-.info div { width: 100%; margin: auto; margin-right: 3em;}
-
 .infoImg img
 {
     max-width: 90%;
@@ -86,12 +115,22 @@ iframe
     max-height: 90%;
     height: auto;
 }
+.info {display: flex; height: 60vh; overflow: auto; vertical-align: middle; margin-top: 1em; margin-bottom: 1em;}
+.info div { width: 100%; margin: auto; margin-right: 3em;}
 
-.div2, .div4
+/*---------------------------------------------------------------
+Division 3 - Hall introductory video
+-----------------------------------------------------------------*/
+#div3 {background-image: url("background2.jpg");}
+iframe
 {
-    background-color: #D89C3D;
+    height: 33.75vw;
+    width: 60%;
 }
 
+/*---------------------------------------------------------------
+Divison 4 - Contact info and query form
+-----------------------------------------------------------------*/
 .div4
 {
     display: grid;
@@ -100,35 +139,90 @@ iframe
     grid-gap: 1%;
     overflow: auto;
 }
+    /*---------------------------------------------------------------
+    contact header
+    -----------------------------------------------------------------*/
+    .contact
+    {
+        grid-column-end: span 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        width: 100%;
+        margin: auto;
+        color: #E5D3B7;
+        -webkit-text-stroke: 0.15em;
+        -webkit-text-stroke-color: black;
+    }
+    .contact h1 {font-weight: 900; font-size: 4em; font-size-adjust: 2em;}
+    /*---------------------------------------------------------------
+    Hall address and social media links
+    -----------------------------------------------------------------*/
+    .address
+    {
+        text-align: center; 
+        margin: auto;
+        margin-top: 0px;
+        margin-right: 0px;
+    }
+    .address span {float: center;}
+    .address img {width: 10%; min-width: 5em; height: auto;}
+    .address h1 {font-weight: 900;}
+    /*---------------------------------------------------------------
+    Query form
+    -----------------------------------------------------------------*/
+    .message
+    {
+        display: flex;
+        justify-content: right;
+        vertical-align: middle;
+        margin: auto;
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+    .message span {float: center;}
+    form div {display: table;}
+    form div p {display: table-row;}
+    form div p input 
+    {
+        display: table-cell; 
+        width: 100%;
+        height: 2.3em; 
+        font-family: "Nunito Sans", sans-serif; 
+        margin-bottom: 0.3em;
+        padding: 0.65em;
+        border: none;
+    }
+    textarea
+    {
+        height: 15vh;
+        min-height: 10em; 
+        width: 25vw;
+        min-width: 20em;
+        font-family: "Nunito Sans", sans-serif;
+        border: none;
+        margin-bottom: 0.5em;
+        padding: 0.65em;
+    }
+    ::-webkit-input-placeholder {color: #D89C3D;}
+    :-moz-placeholder {color: #D89C3D;}
+    ::-moz-placeholder {color: #D89C3D;}
+    :-ms-input-placeholder {color: #D89C3D;}
+    #submitButt 
+    {
+        float: right; 
+        background-color: white;
+        color: #D89C3D; 
+        font-family: 'Montserrat', sans-serif; 
+        border: none; 
+        border-radius: 0.5em;
+        padding: 0.75em;
+    }
 
-.contact
-{
-    grid-column-end: span 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
-    width: 100%;
-    margin: auto;
-    color: #E5D3B7;
-    -webkit-text-stroke: 0.15em;
-    -webkit-text-stroke-color: black;
-}
-
-.contact h1 {font-weight: 900; font-size: 4em; font-size-adjust: 2em;}
-
-.message
-{
-    display: flex;
-    justify-content: right;
-    vertical-align: middle;
-    margin: auto;
-    margin-left: 0px;
-    margin-top: 0px;
-}
-
-.message span {float: center;}
-
+/*---------------------------------------------------------------
+Division 5 - Ownership and Creator (Not part of main grid)
+-----------------------------------------------------------------*/
 .div5
 {
     display: flex;
@@ -141,134 +235,10 @@ iframe
     font-weight: bold;
     font-size: 1.5vh;
 }
-
-.div5 img
-{
-    height: 80%;
-    width: auto;
-}
-
+.div5 img {height: 80%; width: auto;}
 .div5 button
 {
     border: 0;
     background: none;
     box-shadow: none;
 }
-
-.navbar
-{
-    /*height: 30px;*/
-    overflow: hidden;
-    background-color: #333;
-    color: white;
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    width: 100%;
-}
-
-.navbar grid-item a
-{
-    color: white;
-    float: left;
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.navbar grid-item a:hover
-{
-    color: gray;
-}
-
-.navbar grid-item img
-{
-    max-width: 100%;
-    max-height: 100%;
-    height: 100%;
-    width: 67px;
-}
-
-.grid1
-{
-    margin-top: 46px;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 102vh 60vh 102vh 60vh 5vh;
-    grid-gap: 0px;
-}
-
-.navbar
-{
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-}
-
-.navbar grid-item
-{
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    margin-left: 5px;
-}
-
-form div {display: table;}
-form div p {display: table-row;}
-form div p input 
-{
-    display: table-cell; 
-    width: 100%;
-    height: 2.3em; 
-    font-family: "Nunito Sans", sans-serif; 
-    margin-bottom: 0.3em;
-    padding: 0.65em;
-    border: none;
-}
-#submitButt 
-{
-    float: right; 
-    background-color: white;
-    color: #D89C3D; 
-    font-family: 'Montserrat', sans-serif; 
-    border: none; 
-    border-radius: 0.5em;
-    padding: 0.75em;
-}
-
-.address
-{
-    text-align: center; 
-    margin: auto;
-    margin-top: 0px;
-    margin-right: 0px;
-}
-
-.address span {float: center;}
-
-.address img
-{
-    width: 10%;
-    min-width: 5em;
-    height: auto;
-}
-
-.address h1 {font-weight: 900;}
-
-textarea
-{
-    height: 15vh;
-    min-height: 10em; 
-    width: 25vw;
-    min-width: 20em;
-    font-family: "Nunito Sans", sans-serif;
-    border: none;
-    margin-bottom: 0.5em;
-    padding: 0.65em;
-}
-
-::-webkit-input-placeholder {color: #D89C3D;}
-:-moz-placeholder {color: #D89C3D;}
-::-moz-placeholder {color: #D89C3D;}
-:-ms-input-placeholder {color: #D89C3D;}
