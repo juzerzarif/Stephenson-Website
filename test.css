@@ -35,7 +35,7 @@ iframe
 {
     position: relative;
     display: flex;
-    color: gold;
+    color: #E5D3B7;
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -81,7 +81,7 @@ iframe
     max-width: 90%;
     width: auto;
     max-height: 90%;
-    height: 50vh;
+    height: auto;
 }
 
 .div2, .div4
@@ -217,17 +217,18 @@ form div p input
     height: 2.3em; 
     font-family: "Nunito Sans", sans-serif; 
     margin-bottom: 0.3em;
-    padding: 1em;
+    padding: 0.65em;
     border: none;
 }
 #submitButt 
 {
     float: right; 
-    background-color: white; 
+    background-color: white;
+    color: #D89C3D; 
     font-family: 'Montserrat', sans-serif; 
     border: none; 
     border-radius: 0.5em;
-    padding: 0.5em;
+    padding: 0.75em;
 }
 
 .address
@@ -256,5 +257,12 @@ textarea
     width: 25vw;
     min-width: 20em;
     font-family: "Nunito Sans", sans-serif;
+    border: none;
     margin-bottom: 0.5em;
+    padding: 0.65em;
 }
+
+::-webkit-input-placeholder {color: #D89C3D;}
+:-moz-placeholder {color: #D89C3D;}
+::-moz-placeholder {color: #D89C3D;}
+:-ms-input-placeholder {color: #D89C3D;}

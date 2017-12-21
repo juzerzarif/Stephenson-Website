@@ -1,4 +1,6 @@
-
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+ }
 
 $(document).ready(function(){
     
@@ -13,9 +15,9 @@ $(document).ready(function(){
     var $win = $(window);
 
     $('div.background').each(function(){
-        if(screen.width > 540)
+        if(!isMobile())
         {
-            var scroll_speed = 10;
+            var scroll_speed = 5;
             var $this = $(this);
             $(window).scroll(function() {
                 var bgScroll = -(($win.scrollTop() - $this.offset().top)/ scroll_speed);
@@ -30,6 +32,11 @@ $(document).ready(function(){
         $("html, body").animate({
             scrollTop: 0
         }, 600);
+    });
+
+    $(window).scroll(function()
+    {
+        $("#titleText").css("opacity", 1 - $(window).scrollTop()/600);
     });
 
 });
