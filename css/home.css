@@ -49,7 +49,7 @@ navigation header bar
     margin-left: 5px;
 }
 
-@media only screen and (max-width: 800px)
+@media only screen and (max-width: 1080px)
 {
     .navbar #image {display: none;}
     .navbar
@@ -101,7 +101,7 @@ Main body grid
     grid-gap: 0px;
 }
 
-@media only screen and (max-width: 800px)
+@media only screen and (max-width: 1080px)
 {
     .mainbody
     {
