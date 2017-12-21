@@ -49,8 +49,8 @@ navigation header bar
 }
 
 @media only screen 
-and (max-width: 1080px) 
-and (max-height: 1920px)
+and (max-width: 1440px) 
+and (max-height: 2560px)
 {
     .mobile-nav
     {
@@ -70,7 +70,7 @@ and (max-height: 1920px)
     }
     .nav-trig img
     {
-        height: 60px;
+        height: 8vh;
         background-color: #333;
     }
     .navbar #image {display: none;}
