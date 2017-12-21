@@ -3,7 +3,10 @@ function isMobile()
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
+
 $(document).ready(function(){
+    
+    alert($(window).width() + " " + $(window).height());
     
     $(document).on('click', 'a[href^="#"]', function (event) {
         event.preventDefault();
@@ -11,6 +14,11 @@ $(document).ready(function(){
         $('html, body').animate({
             scrollTop: $($.attr(this, 'href')).offset().top
         }, 600);
+        console.log($(window).width);
+        if($(window).width() <= 1440)
+        {
+           $(".navbar").css("display", "none"); 
+        }
     });
 
     var $win = $(window);
