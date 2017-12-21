@@ -36,7 +36,10 @@ $(document).ready(function(){
 
     $(window).scroll(function()
     {
-        $("#titleText").css("opacity", 1 - $(window).scrollTop()/600);
+        if(!isMobile())
+        {
+            $("#titleText").css("opacity", 1 - $(window).scrollTop()/700);
+        }
     });
 
 });

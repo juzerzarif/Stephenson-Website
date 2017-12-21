@@ -13,12 +13,14 @@ body
     
 }
 
+#image img {background-color: blanchedalmond;}
+
 iframe
 {
-    height: 60vh;
-    max-height: 60vh;
-    width: 54vw;
-    max-width: 54vw;
+    height: 33.75vw;
+    /*max-height: 60vh;*/
+    width: 60%;
+    /*max-width: 54vw;*/
 }
 
 #div1
@@ -56,6 +58,7 @@ iframe
 {
     font-weight: 900;
     font-size: 5vw;
+    color: #71A6DC;
 }
 
 .div2
@@ -73,7 +76,7 @@ iframe
     justify-content: center;
 }
 
-.info {display: flex; height: 60vh; overflow: auto; vertical-align: middle;}
+.info {display: flex; height: 60vh; overflow: auto; vertical-align: middle; margin-top: 1em; margin-bottom: 1em;}
 .info div { width: 100%; margin: auto; margin-right: 3em;}
 
 .infoImg img
@@ -107,6 +110,9 @@ iframe
     vertical-align: middle;
     width: 100%;
     margin: auto;
+    color: #E5D3B7;
+    -webkit-text-stroke: 0.15em;
+    -webkit-text-stroke-color: black;
 }
 
 .contact h1 {font-weight: 900; font-size: 4em; font-size-adjust: 2em;}
