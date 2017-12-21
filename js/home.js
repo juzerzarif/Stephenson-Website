@@ -45,9 +45,9 @@ $(document).ready(function(){
 
     $("#nav-trig").click(function()
     {
-        var z = parseInt($(".navbar").css("z-index"), 10);
-        if(z == 1) {$(".navbar").css("z-index", 4);}
-        else {$(".navbar").css("z-index", 1);}
+        var z = $(".navbar").css("display");
+        if(z == "none") {$(".navbar").css("display", "grid");}
+        else {$(".navbar").css("display", "none");}
     });
 
 });
