@@ -9,6 +9,7 @@ body
 /*---------------------------------------------------------------
 navigation header bar
 -----------------------------------------------------------------*/
+.mobile-nav {display: none;}
 .navbar
 {
     display: grid;
@@ -45,6 +46,36 @@ navigation header bar
     align-items: center;
     justify-content: left;
     margin-left: 5px;
+}
+@media screen 
+and (device-width: 360px) 
+and (device-height: 640px) 
+and (-webkit-device-pixel-ratio: 3) 
+{
+    .mobile-nav
+    {
+        display: block;
+        width: 100%;
+        height: 75px;
+        position: fixed;
+        top: 0;
+        background-color: #333;
+        z-index: 3;
+    }
+    .navbar grid-item img {display: none;}
+    .navbar
+    {
+        display: grid;
+        grid-template-rows: repeat(8, 1fr);
+        overflow: hidden;
+        background-color: #333;
+        color: white;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        width: 40%;
+        height: 100%;
+    }
 }
 
 /*---------------------------------------------------------------

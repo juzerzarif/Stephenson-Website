@@ -1,6 +1,7 @@
-function isMobile() {
+function isMobile() 
+{
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
- }
+}
 
 $(document).ready(function(){
     
@@ -40,6 +41,13 @@ $(document).ready(function(){
         {
             $("#titleText").css("opacity", 1 - $(window).scrollTop()/700);
         }
+    });
+
+    $("#nav-trig").click(function()
+    {
+        var z = parseInt($(".navbar").css("z-index"), 10);
+        if(z == 1) {$(".navbar").css("z-index", 4);}
+        else {$(".navbar").css("z-index", 1);}
     });
 
 });
