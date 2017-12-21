@@ -8,6 +8,18 @@ $(document).ready(function(){
     
     alert($(window).width() + " " + $(window).height());
     
+    $(window).resize(function()
+    {
+        if($(window).width() > 963)
+        {
+            $(".navbar").css("display", "grid");
+        }
+        else
+        {
+            $(".navbar").css("display", "none");
+        }
+    });
+
     $(document).on('click', 'a[href^="#"]', function (event) {
         event.preventDefault();
     
@@ -15,7 +27,7 @@ $(document).ready(function(){
             scrollTop: $($.attr(this, 'href')).offset().top
         }, 600);
         console.log($(window).width);
-        if($(window).width() <= 1440)
+        if($(window).width() <= 980)
         {
            $(".navbar").css("display", "none"); 
         }
