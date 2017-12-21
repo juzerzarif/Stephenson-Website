@@ -10,13 +10,10 @@ $(document).ready(function(){
     
     $(window).resize(function()
     {
-        if($(window).width() > 963)
+        if(!isMobile())
         {
-            $(".navbar").css("display", "grid");
-        }
-        else
-        {
-            $(".navbar").css("display", "none");
+            if($(window).width() > 963) { $(".navbar").css("display", "grid"); }
+            else { $(".navbar").css("display", "none"); }
         }
     });
 
