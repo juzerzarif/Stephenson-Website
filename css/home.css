@@ -121,7 +121,7 @@ Division 2 - Informational blurb
 /*---------------------------------------------------------------
 Division 3 - Hall introductory video
 -----------------------------------------------------------------*/
-#div3 {background-image: url("../images/background2.jpg");}
+#div3 {background-image: url("../images/background2.jpg"); overflow: auto;}
 iframe
 {
     height: 33.75vw;
@@ -135,7 +135,7 @@ Divison 4 - Contact info and query form
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 3fr;
+    grid-template-rows: 1fr 3fr;
     grid-gap: 1%;
     overflow: auto;
 }
