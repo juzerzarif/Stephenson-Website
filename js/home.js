@@ -1,3 +1,5 @@
+let isNavShow = false;
+
 function isMobile() 
 {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -12,8 +14,20 @@ $(document).ready(function(){
     {
         if(!isMobile())
         {
-            if($(window).width() > 963) { $(".navbar").css("display", "grid"); }
-            else { $(".navbar").css("display", "none"); }
+            if($(window).width() > 963) 
+            { 
+                $(".navbar").css({"display":"grid","left":"0"});
+                $("#nav-trig").removeClass("change");
+                $(".mainbody").fadeTo("normal", 1);
+                isNavShow = false;
+            }
+            else 
+            { 
+                $(".navbar").css({"display":"none","left":"-40%"});
+                $("#nav-trig").removeClass("change");
+                $(".mainbody").fadeTo("normal", 1); 
+                isNavShow=false; 
+            }
         }
     });
 
@@ -26,7 +40,10 @@ $(document).ready(function(){
         console.log($(window).width);
         if($(window).width() <= 980)
         {
-           $(".navbar").css("display", "none"); 
+           $(".navbar").css({"display":"none","left":"-40%"});
+           $("#nav-trig").removeClass("change");
+           $(".mainbody").fadeTo("normal", 1); 
+           isNavShow=false;  
         }
     });
 
@@ -62,9 +79,23 @@ $(document).ready(function(){
 
     $("#nav-trig").click(function()
     {
-        var z = $(".navbar").css("display");
-        if(z == "none") {$(".navbar").css("display", "grid");}
-        else {$(".navbar").css("display", "none");}
+        $(this).toggleClass("change");
+        //var z = $(".navbar").css("display");
+        if(!isNavShow) 
+        {
+            $(".navbar").css("display", "grid"); 
+            $(".navbar").animate({left: '+=40%'});
+            $(".mainbody").fadeTo("normal", 0.5); 
+            isNavShow=true;
+        }
+        else 
+        {
+            $(".navbar").animate({left: '-=40%'});
+            /*$(".navbar").css("display", "none");*/
+            $(".mainbody").fadeTo("normal", 1); 
+            isNavShow=false;
+        }
+        
     });
 
 });
