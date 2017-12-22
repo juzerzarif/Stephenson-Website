@@ -82,12 +82,12 @@
                 <div class="message" id="message">
                     <center>
                     <span>
-                    <form id="contactForm">
+                    <form id="contactForm" action="emailQuery.php" method="POST">
                         <div>
-                        <p><input type="text" placeholder="Name" required></p>
-                        <p><input pattern="[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+" placeholder="Email" required></p>
-                        <p><input type="text" placeholder="Subject" required></p>
-                        <p><textarea placeholder="Message" required></textarea></p>
+                        <p><input type="text" name="name" placeholder="Name" required></p>
+                        <p><input pattern="[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+" name="email" placeholder="Email" required></p>
+                        <p><input type="text" name="subject" placeholder="Subject" required></p>
+                        <p><textarea name="message" placeholder="Message" required></textarea></p>
                         </div>
                         <input type="submit" value="Send" id="submitButt">
                     </form>
