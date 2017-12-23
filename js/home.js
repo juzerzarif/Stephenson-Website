@@ -1,5 +1,7 @@
 let isNavShow = false;
 let vidPause = false;
+let focus = true;
+let access = true;
 
 function isMobile() 
 {
@@ -25,15 +27,45 @@ $.fn.isOnScreen = function(){
     
     };
 
+function scrollNudge()
+{
+    let z = $(window).scrollTop();
+    if( z==0 ) { $(window).scroll(); }
+    else { $(window).scrollTop(z-1); }
+}
+
 $(document).ready(function(){
     
-    alert($(window).width() + " " + $(window).height());
+    //alert($(window).width() + " " + $(window).height());
+    
+    window.addEventListener("click", function(){ access=false; console.log("click happened"); }, true);
+    window.addEventListener("scroll", function(){ access=false; console.log("scroll happened"); }, true);
+    window.addEventListener("blur", function(){ access=false; console.log("blur happened"); }, true);
+    window.addEventListener("mousemove", function(){ access=false; console.log("mousemove happened"); }, true);
+    $("#topBadge").one("click", function()
+    {
+        console.log("inside topBadge");
+        setTimeout(function()
+        {
+            access = true;
+            console.log("topBadge turned on access");
+        }, 500);
+        setTimeout(function()
+        { if(access) { window.location.href = "secret.html"; } }, 5000);
+    });
+    
+    $(window).blur(function(){ focus = false; $('video').get(0).pause(); })
+    $(window).focus(function(){ focus = true; scrollNudge(); })
     
     document.getElementById("welcomeVideo").addEventListener("pause", function()
     {
-        if($('video').isOnScreen()) {vidPause = true;}
+        if(focus)
+        {
+            if($('video').isOnScreen()) { vidPause = true; }
+        }
+        else { vidPause = false; }
     });
-    document.getElementById("welcomeVideo").addEventListener("play", function(){ vidPause=false; });
+    document.getElementById("welcomeVideo").addEventListener("play", function(){ vidPause=false; scrollNudge(); });
     $('video').each(function()
     {
         $this = $(this);
@@ -46,6 +78,7 @@ $(document).ready(function(){
             }
         });
     });
+
     
     $(window).resize(function()
     {
@@ -122,14 +155,17 @@ $(document).ready(function(){
         {
             $(".navbar").css("display", "grid"); 
             $(".navbar").animate({left: '+=40%'});
-            $(".mainbody").fadeTo("normal", 0.5); 
+            $(".mainbody").fadeTo("normal", 0.5);
+            $("#welcomeVideo").get(0).pause(); 
             isNavShow=true;
         }
         else 
         {
             $(".navbar").animate({left: '-=40%'});
             /*$(".navbar").css("display", "none");*/
-            $(".mainbody").fadeTo("normal", 1); 
+            $(".mainbody").fadeTo("normal", 1);
+            if($("#welcomeVideo").isOnScreen()) { $("#welcomeVideo").get(0).play(); }
+            else { vidPause = false; }
             isNavShow=false;
         }
         

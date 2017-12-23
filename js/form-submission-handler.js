@@ -79,7 +79,7 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
     xhr.onreadystatechange = function() {
         console.log( xhr.status, xhr.statusText )
         console.log(xhr.responseText);
-        document.getElementById('contactForm').reset(); // hide form
+        document.getElementById('contactForm').reset(); // reset form
         document.getElementById('submitMessage').style.display = 'block';
         return;
     };

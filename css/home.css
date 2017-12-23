@@ -171,6 +171,11 @@ Division 1 - Main heading
     font-size: 5vw;
     color: #71A6DC;
 }
+@media only screen
+and (max-width: 980px)
+{
+    #heading { font-size: 5vh; }
+}
 
 /*---------------------------------------------------------------
 Division 2 - Informational blurb
