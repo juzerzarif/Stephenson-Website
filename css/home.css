@@ -174,7 +174,7 @@ Division 1 - Main heading
 @media only screen
 and (max-width: 980px)
 {
-    #heading { font-size: 10vh; }
+    #heading { font-size: 7vh; }
 }
 
 /*---------------------------------------------------------------
