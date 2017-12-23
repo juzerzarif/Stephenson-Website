@@ -58,7 +58,7 @@
             </div>
             
             <div class = "background" id="div3">
-                <iframe src="https://www.youtube.com/embed/qgsgiIak8k8" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                <video id="welcomeVideo" src="video/Welcome_to_Stephenson.mp4" controls></video>
             </div>
             
             <div class = "div4" id="div4">
@@ -86,7 +86,8 @@
                 <div class="message" id="message">
                     <center>
                     <span>
-                    <form id="contactForm" action="emailQuery.php" method="POST">
+                    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbz9DYfXQCCPWp1iDXjhY7z6PohsmYcn_nyN_b0lEivMAF6ua5I/exec" method="POST">
+                        <input id="honeypot" type="text" name="honeypot" value="" />
                         <div>
                         <p><input type="text" name="name" placeholder="Name" required></p>
                         <p><input pattern="[a-zA-Z0-9.!#$%&amp;'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+" name="email" placeholder="Email" required></p>
@@ -95,6 +96,9 @@
                         </div>
                         <input type="submit" value="Send" id="submitButt">
                     </form>
+                    <div id="submitMessage">
+                        <br><br>Thanks for reaching out! We'll get back to you soon
+                    </div>
                     </span>
                     </center>
                 </div>
@@ -108,6 +112,7 @@
             </div>
         
         </grid-container>
-
+        <script data-cfasync="false" type="text/javascript"
+        src="js/form-submission-handler.js"></script>
     </body>
 </html>

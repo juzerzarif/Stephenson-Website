@@ -109,6 +109,7 @@ and (max-width: 980px)
         color: white;
         position: fixed;
         z-index: 5;
+        padding: 0 0;
         margin-top: 7vh;
         left: -40%;
         width: 40%;
@@ -130,6 +131,14 @@ Main body grid
     grid-template-columns: 100%;
     grid-template-rows: 102vh 60vh 102vh 60vh 5vh;
     grid-gap: 0px;
+}
+@media only screen 
+and (max-width: 980px)
+{
+    .mainbody
+    {
+        grid-template-rows: 102vh 60vh 56.25vw 60vh 5vh;
+    }
 }
 
 /*---------------------------------------------------------------
@@ -190,16 +199,28 @@ Division 2 - Informational blurb
     margin: auto;
 }
 .info {display: flex; height: 60vh; overflow: auto; vertical-align: middle;}
-.info div { width: 100%; margin: auto; margin-right: 3em;}
+.info div { width: 100%; margin: auto; margin-right: 3em; padding: 12px 0;}
 
 /*---------------------------------------------------------------
 Division 3 - Hall introductory video
 -----------------------------------------------------------------*/
 #div3 {background-image: url("../images/background2.jpg"); overflow: hidden;}
-iframe
+video
 {
     height: 33.75vw;
     width: 60%;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-stroke-width: 0;
+}
+@media only screen 
+and (max-width: 980px)
+{
+    #div3 {background-image: none; background-color: black;}
+    video
+    {
+        width: 100%;
+        height: 56.25vw;
+    }
 }
 
 /*---------------------------------------------------------------
@@ -239,6 +260,7 @@ Divison 4 - Contact info and query form
         margin: auto;
         margin-top: 0px;
         margin-right: 0px;
+        padding: 0 0 12px 12px;
     }
     .address span {float: center;}
     .address img {width: 10%; min-width: 5em; height: auto;}
@@ -246,6 +268,7 @@ Divison 4 - Contact info and query form
     /*---------------------------------------------------------------
     Query form
     -----------------------------------------------------------------*/
+    #honeypot {display: none;}
     .message
     {
         display: flex;
@@ -254,6 +277,7 @@ Divison 4 - Contact info and query form
         margin: auto;
         margin-left: 0px;
         margin-top: 0px;
+        padding: 0 12px 12px 0;
     }
     .message span {float: center;}
     form div {display: table;}
@@ -294,6 +318,7 @@ Divison 4 - Contact info and query form
         padding: 0.75em;
         cursor: pointer;
     }
+    #submitMessage {display: none; color: white;}
 
 /*---------------------------------------------------------------
 Division 5 - Ownership and Creator 
