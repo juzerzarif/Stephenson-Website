@@ -137,7 +137,7 @@ and (max-width: 980px)
 {
     .mainbody
     {
-        grid-template-rows: 102vh 60vh 56.25vw 60vh 5vh;
+        grid-template-rows: 102vh 100vh 56.25vw 60vh 5vh;
     }
 }
 
@@ -212,7 +212,7 @@ and (max-width: 980px)
 {
     .infoImg { display: none; }
     .div2 { display: block; }
-    .info { font-size: 14px; }
+    .info { font-size: 14px; height: 100vh; }
 }
 
 /*---------------------------------------------------------------
