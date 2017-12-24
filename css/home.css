@@ -253,7 +253,7 @@ and (max-width: 980px)
 {
     .div4
     {
-        grid-template-columns: 100%;
+        grid-template-columns: 1fr;
         grid-template-rows: 1fr 3fr 3fr;
     }
 }
@@ -274,6 +274,11 @@ and (max-width: 980px)
         -webkit-text-stroke-color: black;
     }
     .contact h1 {font-weight: 900; font-size: 4em; font-size-adjust: 2em;}
+    @media only screen
+    and (max-width: 980px)
+    {
+        .contact { grid-column-end: span 1; }
+    }
     /*---------------------------------------------------------------
     Hall address and social media links
     -----------------------------------------------------------------*/
