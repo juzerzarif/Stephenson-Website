@@ -365,7 +365,7 @@ and (max-width: 980px)
     {
         .message { padding: 12px 12px; margin: auto; margin-top: auto; margin-right: auto; }
         textarea { width: 80vw; height: 20vh; font-size: 2vh;}
-        form div p input, #submitButt { font-size: 2vh; }
+        form div p input, #submitButt, #submitMessage { font-size: 2vh; }
     }
 
 /*---------------------------------------------------------------
