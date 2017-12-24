@@ -137,7 +137,7 @@ and (max-width: 980px)
 {
     .mainbody
     {
-        grid-template-rows: 102vh 100vh 56.25vw 90vh 5vh;
+        grid-template-rows: 102vh 100vh 56.25vw 95vh 5vh;
     }
 }
 
