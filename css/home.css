@@ -393,5 +393,5 @@ Division 5 - Ownership and Creator
 @media only screen
 and (max-width: 980px) 
 {
-    .div5 img {display: none;}    
+    .div5 button {display: none;}    
 }
