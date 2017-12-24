@@ -174,7 +174,7 @@ Division 1 - Main heading
 @media only screen
 and (max-width: 980px)
 {
-    #div1, #div3 { font-size: 1.75vh; }
+    #div1, #div3 { font-size: 3.25vh; -webkit-text-stroke-width: 0.2vh;}
     #heading { font-size: 7vh; }
 }
 
@@ -205,7 +205,15 @@ Division 2 - Informational blurb
     margin: auto;
 }
 .info {display: flex; height: 60vh; overflow: auto; vertical-align: middle;}
-.info div { width: 100%; margin: auto; margin-right: 3em; padding: 12px 0;}
+.info div { width: 100%; margin: auto; padding: 12px 12px;}
+
+@media only screen
+and (max-width: 980px)
+{
+    .infoImg { display: none; }
+    .div2 { display: block; }
+    .info { font-size: 14px; }
+}
 
 /*---------------------------------------------------------------
 Division 3 - Hall introductory video

@@ -61,7 +61,11 @@ $(document).ready(function(){
     {
         if(focus)
         {
-            if($('video').isOnScreen()) { vidPause = true; }
+            if($('video').isOnScreen()) 
+            { 
+                if(isNavShow) { vidPause=false; } 
+                else { vidPause = true; }
+            }
         }
         else { vidPause = false; }
     });
@@ -156,16 +160,19 @@ $(document).ready(function(){
             $(".navbar").css("display", "grid"); 
             $(".navbar").animate({left: '+=40%'});
             $(".mainbody").fadeTo("normal", 0.5);
-            $("#welcomeVideo").get(0).pause(); 
             isNavShow=true;
+            $("#welcomeVideo").get(0).pause(); 
         }
         else 
         {
             $(".navbar").animate({left: '-=40%'});
             /*$(".navbar").css("display", "none");*/
             $(".mainbody").fadeTo("normal", 1);
-            if($("#welcomeVideo").isOnScreen()) { $("#welcomeVideo").get(0).play(); }
-            else { vidPause = false; }
+            if(!vidPause)
+            {
+                if($("#welcomeVideo").isOnScreen()) { $("#welcomeVideo").get(0).play(); }
+                else { vidPause = false; }
+            }
             isNavShow=false;
         }
         
