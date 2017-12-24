@@ -279,7 +279,7 @@ and (max-width: 980px)
     and (max-width: 980px)
     {
         .contact { grid-column-end: span 1; }
-        .contact h1 { font-size: 7vh; }
+        .contact h1 { font-size: 5vh; }
     }
     /*---------------------------------------------------------------
     Hall address and social media links
@@ -303,8 +303,8 @@ and (max-width: 980px)
             padding: 12px 12px; 
             margin: auto; margin-top: auto; margin-right: auto;
         }
-        .address h1 { font-size: 6vh; }
-        .address h3 { font-size: 3vh; }
+        .address h1 { font-size: 3vh; }
+        .address h3 { font-size: 2vh; }
     }
     /*---------------------------------------------------------------
     Query form
@@ -364,8 +364,8 @@ and (max-width: 980px)
     and (max-width: 980px)
     {
         .message { padding: 12px 12px; margin: auto; margin-top: auto; margin-right: auto; }
-        textarea { width: 80vw; height: 20vh; font-size: 3vh;}
-        form div p input, #submitButt { font-size: 3vh; }
+        textarea { width: 80vw; height: 20vh; font-size: 2vh;}
+        form div p input, #submitButt { font-size: 2vh; }
     }
 
 /*---------------------------------------------------------------
