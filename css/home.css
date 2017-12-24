@@ -279,6 +279,7 @@ and (max-width: 980px)
     and (max-width: 980px)
     {
         .contact { grid-column-end: span 1; }
+        .contact h1 { font-size: 7vh; }
     }
     /*---------------------------------------------------------------
     Hall address and social media links
@@ -292,12 +293,18 @@ and (max-width: 980px)
         padding: 0 0 12px 12px;
     }
     .address span {float: center;}
-    .address img {width: 10%; min-width: 5em; height: auto;}
+    .address img {width: 20%; min-width: 5em; height: auto;}
     .address h1 {font-weight: 900;}
     @media only screen
     and (max-width: 980px)
     {
-        .address { padding: 12px 12px; margin: auto; margin-top: auto; margin-right: auto; }
+        .address 
+        { 
+            padding: 12px 12px; 
+            margin: auto; margin-top: auto; margin-right: auto;
+        }
+        .address h1 { font-size: 6vh; }
+        .address h3 { font-size: 3vh; }
     }
     /*---------------------------------------------------------------
     Query form
@@ -357,7 +364,8 @@ and (max-width: 980px)
     and (max-width: 980px)
     {
         .message { padding: 12px 12px; margin: auto; margin-top: auto; margin-right: auto; }
-        textarea { width: 80vw; }
+        textarea { width: 80vw; height: 20vh; font-size: 3vh;}
+        form div p input, #submitButt { font-size: 3vh; }
     }
 
 /*---------------------------------------------------------------
