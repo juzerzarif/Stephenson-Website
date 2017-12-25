@@ -284,7 +284,7 @@ and (max-width: 980px)
     and (max-width: 980px)
     {
         .contact { grid-column-end: span 1; }
-        .contact h1 { font-size: 24px; }
+        .contact h1 { font-size: 4em; }
     }
     /*---------------------------------------------------------------
     Hall address and social media links
