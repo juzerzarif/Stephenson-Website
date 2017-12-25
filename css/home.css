@@ -129,7 +129,7 @@ Main body grid
     z-index: 2;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 102vh 60vh 102vh 60vh 5vh;
+    grid-template-rows: 102vh auto 102vh auto 5vh;
     grid-gap: 0px;
 }
 @media only screen 
@@ -137,7 +137,7 @@ and (max-width: 980px)
 {
     .mainbody
     {
-        grid-template-rows: 102vh 100vh 56.25vw 97vh 5vh;
+        grid-template-rows: 102vh auto 56.25vw auto 5vh;
     }
 }
 
@@ -185,26 +185,31 @@ Division 2 - Informational blurb
 .div2
 {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
     grid-template-rows: 100%;
     grid-column-gap: 3%;
+    padding: 50px 12px;
 }
 .infoImg
 {
-    display: flex;
+    /*display: flex;
     align-items: center;
     vertical-align: middle;
-    justify-content: center;
+    justify-content: center;*/
+    padding: 12px;
 }
 .infoImg img
 {
-    max-width: 90%;
+    /*max-width: 90%;
     width: auto;
     max-height: 90%;
     height: auto;
-    margin: auto;
+    margin: auto;*/
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
-.info {display: flex; height: 60vh; overflow: auto; vertical-align: middle;}
+.info { grid-column: 2/-1; display: flex; vertical-align: middle;}
 .info div { width: 100%; margin: auto; padding: 12px 12px;}
 
 @media only screen
@@ -212,7 +217,7 @@ and (max-width: 980px)
 {
     .infoImg { display: none; }
     .div2 { display: block; }
-    .info { font-size: 14px; height: 100vh; }
+    .info { font-size: 14px; }
 }
 
 /*---------------------------------------------------------------
@@ -244,9 +249,10 @@ Divison 4 - Contact info and query form
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: repeat(2, auto);
     grid-gap: 1%;
-    overflow: auto;
+    padding: 50px;
+    /*overflow: auto;*/
 }
 @media only screen
 and (max-width: 980px)
@@ -254,7 +260,7 @@ and (max-width: 980px)
     .div4
     {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 3fr 3fr;
+        grid-template-rows: repeat(3, auto);
         font-size: 14px;
     }
 }
@@ -264,22 +270,21 @@ and (max-width: 980px)
     .contact
     {
         grid-column-end: span 2;
-        display: flex;
+        display: grid;
         align-items: center;
         justify-content: center;
-        vertical-align: middle;
+        align-content: center;
         width: 100%;
-        margin: auto;
         color: #E5D3B7;
         -webkit-text-stroke: 0.15em;
         -webkit-text-stroke-color: black;
     }
-    .contact h1 {font-weight: 900; font-size: 4em; font-size-adjust: 2em; padding: 12px 12px;}
+    .contact h1 {font-weight: 900; font-size: 4em; padding: 12px 12px; text-align: center; margin: 0 0;} 
     @media only screen
     and (max-width: 980px)
     {
         .contact { grid-column-end: span 1; }
-        .contact h1 { font-size: 5vh; }
+        .contact h1 { font-size: 3em; }
     }
     /*---------------------------------------------------------------
     Hall address and social media links
@@ -303,8 +308,8 @@ and (max-width: 980px)
             padding: 12px 12px; 
             margin: auto; margin-top: auto; margin-right: auto;
         }
-        .address h1 { font-size: 3vh; }
-        .address h3 { font-size: 2vh; }
+        .address h1 { font-size: 2em; }
+        .address h3 { font-size: 1em; }
     }
     /*---------------------------------------------------------------
     Query form
@@ -312,18 +317,13 @@ and (max-width: 980px)
     #honeypot {display: none;}
     .message
     {
-        display: flex;
-        justify-content: right;
-        vertical-align: middle;
         margin: auto;
         margin-left: 0px;
         margin-top: 0px;
         padding: 0 12px 12px 0;
     }
-    .message span {float: center;}
-    form div {display: table;}
-    form div p {display: table-row;}
-    form div p input 
+    form div {display: table; max-width: 25em;}
+    form div input 
     {
         display: table-cell; 
         width: 100%;
@@ -337,7 +337,7 @@ and (max-width: 980px)
     {
         height: 15vh;
         min-height: 10em; 
-        width: 25vw;
+        width: 100%;
         min-width: 20em;
         font-family: "Nunito Sans", sans-serif;
         border: none;
@@ -364,8 +364,8 @@ and (max-width: 980px)
     and (max-width: 980px)
     {
         .message { padding: 12px 12px; margin: auto; margin-top: auto; margin-right: auto; }
-        textarea { width: 80vw; height: 20vh; font-size: 28px;}
-        form div p input, #submitButt, #submitMessage { font-size: 28px; }
+        textarea { width: 100%; height: 20vh; font-size: 1em;}
+        form div p input, #submitButt, #submitMessage { font-size: 1em; }
     }
 
 /*---------------------------------------------------------------
