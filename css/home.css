@@ -298,7 +298,7 @@ and (max-width: 980px)
         }
         .address h1 { font-size: 4em; }
         .address h3 { font-size: 2em; }
-        .address img { min-width: 20; }
+        .address img { min-width: 20%; }
     }
     /*---------------------------------------------------------------
     Query form
