@@ -296,7 +296,7 @@ and (max-width: 980px)
             padding: 12px 12px; 
             margin: auto; margin-top: auto; margin-right: auto;
         }
-        /*.address h1 { font-size: 4em; }*/
+        .address h1 { font-size: 4em; }
         .address h3 { font-size: 2em; }
         .address img { min-width: 20; }
     }
