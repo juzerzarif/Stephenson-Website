@@ -126,7 +126,7 @@ $(document).ready(function(){
     $('div.background').each(function(){
         if(!isMobile())
         {
-            var scroll_speed = 5;
+            var scroll_speed = 3;
             var $this = $(this);
             $(window).scroll(function() {
                 var bgScroll = -(($win.scrollTop() - $this.offset().top)/ scroll_speed);

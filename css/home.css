@@ -187,29 +187,17 @@ Division 2 - Informational blurb
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
     grid-template-rows: 100%;
-    grid-column-gap: 3%;
-    padding: 50px 12px;
+    grid-column-gap: 1%;
+    padding: 50px;
 }
-.infoImg
-{
-    /*display: flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center;*/
-    padding: 12px;
-}
+.infoImg { padding: 12px; }
 .infoImg img
 {
-    /*max-width: 90%;
-    width: auto;
-    max-height: 90%;
-    height: auto;
-    margin: auto;*/
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
-.info { grid-column: 2/-1; display: flex; vertical-align: middle;}
+.info { grid-column: 2/-1; display: flex; vertical-align: middle; min-height: 40vh; }
 .info div { width: 100%; margin: auto; padding: 12px 12px;}
 
 @media only screen
@@ -390,6 +378,7 @@ Division 5 - Ownership and Creator
     border: 0;
     background: none;
     box-shadow: none;
+    cursor: pointer;
 }
 @media only screen
 and (max-width: 980px) 
