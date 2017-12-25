@@ -380,6 +380,8 @@ Division 5 - Ownership and Creator
     background: none;
     box-shadow: none;
     cursor: pointer;
+    height: 5vh;
+    width: 6vh;
 }
 @media only screen
 and (max-width: 980px) 
