@@ -286,7 +286,7 @@ and (max-width: 980px)
         padding: 0 0 12px 12px;
     }
     .address span {float: center;}
-    .address img {width: 20%; min-width: 5em; height: auto;}
+    .address img {width: 30%; min-width: 5em; height: auto;}
     .address h1 {font-weight: 900;}
     @media only screen
     and (max-width: 980px)
@@ -296,8 +296,8 @@ and (max-width: 980px)
             padding: 12px 12px; 
             margin: auto; margin-top: auto; margin-right: auto;
         }
-        /*.address h1 { font-size: 4em; }
-        .address h3 { font-size: 2em; }*/
+        /*.address h1 { font-size: 4em; }*/
+        .address h3 { font-size: 2em; }
     }
     /*---------------------------------------------------------------
     Query form
