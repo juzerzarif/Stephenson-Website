@@ -33,7 +33,7 @@ navigation header bar
     /*padding: 14px 16px;*/
     text-decoration: none;
 }
-.navbar a grid-item:hover {color: gray;}
+.navbar a grid-item:hover {color: gray;}        
 .navbar grid-item img
 {
     background-color: blanchedalmond;
@@ -212,7 +212,7 @@ and (max-width: 980px)
 Division 3 - Hall introductory video
 -----------------------------------------------------------------*/
 #div3 {background-image: url("../images/background2.jpg"); overflow: hidden;}
-video
+iframe
 {
     height: 33.75vw;
     width: 60%;
@@ -223,7 +223,7 @@ video
 and (max-width: 980px)
 {
     #div3 {background-image: none; background-color: black;}
-    video
+    iframe
     {
         width: 100%;
         height: 56.25vw;

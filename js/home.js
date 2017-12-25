@@ -3,11 +3,17 @@ let vidPause = false;
 let focus = true;
 let access = true;
 
+//
+// determine if device is a mobile device or not
+//
 function isMobile() 
 {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
+//
+// jQuery function to determine if an element is entriely on screen. Will return false if element is even partially off-screen
+//
 $.fn.isOnScreen = function(){
     
         var win = $(window);
@@ -24,66 +30,170 @@ $.fn.isOnScreen = function(){
         bounds.bottom = bounds.top + this.outerHeight();
     
         return (!(viewport.right < bounds.right || viewport.left > bounds.left || viewport.bottom < bounds.bottom || viewport.top > bounds.top));
-    
     };
 
+//
+// scrolls screen a little bit - helps to trigger some scroll bound functionality on page focus or load
+//
 function scrollNudge()
 {
     let z = $(window).scrollTop();
     if( z==0 ) { $(window).scroll(); }
     else { $(window).scrollTop(z-1); }
+    $(window).focus();
 }
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Setting up the PageVisibility API
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Set the name of the hidden property and the change event for visibility
+var hidden, visibilityChange; 
+if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
+  hidden = "hidden";
+  visibilityChange = "visibilitychange";
+} else if (typeof document.msHidden !== "undefined") {
+  hidden = "msHidden";
+  visibilityChange = "msvisibilitychange";
+} else if (typeof document.webkitHidden !== "undefined") {
+  hidden = "webkitHidden";
+  visibilityChange = "webkitvisibilitychange";
+}
+
+// Warn if the browser doesn't support addEventListener or the Page Visibility API
+if (typeof document.addEventListener === "undefined" || typeof document.hidden === "undefined") {
+    console.log("This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.");
+  } else {
+    // Handle page visibility change   
+    document.addEventListener(visibilityChange, handleVisibilityChange, false);
+  }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// LOADING THE YOUTUBE API
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var tag = document.createElement('script');
+tag.id = 'iframe-demo';
+tag.src = 'https://www.youtube.com/iframe_api';
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// YOUTUBE PLAYER FUNCTIONS
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+var player;
+function onYouTubeIframeAPIReady() 
+{
+    console.log("youtube api ready");
+    player = new YT.Player('welcomeVideo', {
+    events: {
+        'onStateChange': onPlayerStateChange
+    }
+    });
+}
+
+function onPlayerStateChange(event)
+{
+    var status = event.data;
+    if(status == 1) { vidPause = false; console.log("video play: "+vidPause); } //VIDEO IS PLAYING
+    else if(status == 2) //VIDEO IS PAUSED
+    { 
+        vidPause = true; console.log("video pause: "+vidPause); 
+    }
+}
+
+//Soft Pause Youtube video
+function pauseYTVideo() 
+{
+    player.pauseVideo(); 
+    setTimeout(function(){
+        vidPause=false; console.log(vidPause);
+    }, 100);
+}
+
+//Event handlers to handle video play pause
+$(window).scroll(function()
+{
+    if(!vidPause)
+    {
+        if( !isMobile || $(window).width>963)
+        {
+            if($("#welcomeVideo").isOnScreen()) { player.playVideo(); }
+            else { pauseYTVideo(); }
+        }
+        else
+        {
+            if(!isNavShow)
+            {
+                if($("#welcomeVideo").isOnScreen()) { player.playVideo(); }
+                else { pauseYTVideo(); }
+            }
+        }
+    }
+});
+
+function handleVisibilityChange() {
+    if (document[hidden]) {
+      if(!vidPause) { pauseYTVideo(); }
+      access = false;
+    } else {
+      scrollNudge(); //when window becomes visible, scroll to activate scroll events 
+    }
+  }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 $(document).ready(function(){
     
     //alert($(window).width() + " " + $(window).height());
-    
-    window.addEventListener("click", function(){ access=false; console.log("click happened"); }, true);
-    window.addEventListener("scroll", function(){ access=false; console.log("scroll happened"); }, true);
-    window.addEventListener("blur", function(){ access=false; console.log("blur happened"); }, true);
-    window.addEventListener("mousemove", function(){ access=false; console.log("mousemove happened"); }, true);
-    $("#topBadge").one("click", function()
+    $(window).ready(function()
     {
-        console.log("inside topBadge");
-        setTimeout(function()
-        {
-            access = true;
-            console.log("topBadge turned on access");
+        setTimeout( function(){
+            console.log("window load");
+            scrollNudge(); 
+            setTimeout(function() {$(window).focus();}, 500);
         }, 500);
-        setTimeout(function()
-        { if(access) { window.location.href = "secret.html"; } }, 5000);
     });
     
-    $(window).blur(function(){ focus = false; $('video').get(0).pause(); })
-    $(window).focus(function(){ focus = true; scrollNudge(); })
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // Click behavior for navbar links
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
     
-    document.getElementById("welcomeVideo").addEventListener("pause", function()
-    {
-        if(focus)
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 600);
+        console.log($(window).width);
+        if($(window).width() <= 980)
         {
-            if($('video').isOnScreen()) 
-            { 
-                if(isNavShow) { vidPause=false; } 
-                else { vidPause = true; }
-            }
+           $(".navbar").css({"display":"none","left":"-40%"});
+           $("#nav-trig").removeClass("change");
+           $(".mainbody").fadeTo("normal", 1); 
+           isNavShow=false;  
         }
-        else { vidPause = false; }
     });
-    document.getElementById("welcomeVideo").addEventListener("play", function(){ vidPause=false; scrollNudge(); });
-    $('video').each(function()
-    {
-        $this = $(this);
-        $(window).on('load scroll', function()
-        {
-            if(!vidPause)
-            {
-                if($this.isOnScreen()) { $this[0].play(); }
-                else { $this[0].pause(); }
-            }
-        });
-    });
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    
+
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // Switching between mobile mode and desktop mode when window is resized
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     $(window).resize(function()
     {
         if(!isMobile())
@@ -104,53 +214,15 @@ $(document).ready(function(){
             }
         }
     });
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    $(document).on('click', 'a[href^="#"]', function (event) {
-        event.preventDefault();
-    
-        $('html, body').animate({
-            scrollTop: $($.attr(this, 'href')).offset().top
-        }, 600);
-        console.log($(window).width);
-        if($(window).width() <= 980)
-        {
-           $(".navbar").css({"display":"none","left":"-40%"});
-           $("#nav-trig").removeClass("change");
-           $(".mainbody").fadeTo("normal", 1); 
-           isNavShow=false;  
-        }
-    });
 
-    var $win = $(window);
-
-    $('div.background').each(function(){
-        if(!isMobile())
-        {
-            var scroll_speed = 3;
-            var $this = $(this);
-            $(window).scroll(function() {
-                var bgScroll = -(($win.scrollTop() - $this.offset().top)/ scroll_speed);
-                var bgPosition = 'center '+ bgScroll + 'px';
-                $this.css({ backgroundPosition: bgPosition });
-            });
-        }
-    });
-
-    $("#toTop").click(function ()
-    {
-        $("html, body").animate({
-            scrollTop: 0
-        }, 600);
-    });
-
-    $(window).scroll(function()
-    {
-        if(!isMobile())
-        {
-            $("#titleText").css("opacity", 1 - $(window).scrollTop()/700);
-        }
-    });
-
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // Mobile nav-trig click functionality
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     $("#nav-trig").click(function()
     {
         $(this).toggleClass("change");
@@ -161,21 +233,102 @@ $(document).ready(function(){
             $(".navbar").animate({left: '+=40%'});
             $(".mainbody").fadeTo("normal", 0.5);
             isNavShow=true;
-            $("#welcomeVideo").get(0).pause(); 
+            if(!vidPause) { pauseYTVideo(); }
         }
         else 
         {
             $(".navbar").animate({left: '-=40%'});
             /*$(".navbar").css("display", "none");*/
             $(".mainbody").fadeTo("normal", 1);
-            if(!vidPause)
-            {
-                if($("#welcomeVideo").isOnScreen()) { $("#welcomeVideo").get(0).play(); }
-                else { vidPause = false; }
+            if(!vidPause) 
+            { 
+                if($("#welcomeVideo").isOnScreen()) { player.playVideo(); }
             }
             isNavShow=false;
         }
         
     });
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // topBadge Secret Site Code
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    window.addEventListener("click", function(){ access=false; console.log("click happened"); }, true);
+    window.addEventListener("scroll", function(){ access=false; console.log("scroll happened"); }, true);
+    window.addEventListener("blur", function(){ access=false; console.log("blur happened"); }, true);
+    window.addEventListener("mousemove", function(){ access=false; /*console.log("mousemove happened");*/ }, true);
+    window.addEventListener("focus", function(){ console.log("window has focus"); }, true);
+    $("#topBadge").one("click", function()
+    {
+        console.log("inside topBadge");
+        setTimeout(function()
+        {
+            access = true;
+            console.log("topBadge turned on access");
+        }, 500);
+        setTimeout(function()
+        { if(access) { window.location.href = "secret.html"; } }, 5000);
+    });
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+     
+
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // Title fade on scroll code
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    $(window).scroll(function()
+    {
+        if(!isMobile())
+        {
+            $("#titleText").css("opacity", 1 - $(window).scrollTop()/700);
+        }
+    });
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // Parallax scrolling code
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    var $win = $(window);
+
+    $('div.background').each(function(){
+        if(!isMobile())
+        {
+            var scroll_speed = 4;
+            var $this = $(this);
+            $(window).scroll(function() {
+                var bgScroll = -(($win.scrollTop() - $this.offset().top)/ scroll_speed);
+                var bgPosition = 'center '+ bgScroll + 'px';
+                $this.css({ backgroundPosition: bgPosition });
+            });
+        }
+    });
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // Go to Top button code
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    $("#toTop").click(function ()
+    {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+    });
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
 });
