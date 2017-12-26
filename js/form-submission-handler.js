@@ -80,7 +80,7 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
         console.log( xhr.status, xhr.statusText )
         console.log(xhr.responseText);
         document.getElementById('contactForm').reset(); // reset form
-        document.getElementById('submitMessage').style.display = 'block';
+        document.getElementById('submitMessage').style.display = 'grid';
         return;
     };
     // url encode form data for sending as post data

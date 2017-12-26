@@ -232,7 +232,15 @@ and (max-width: 980px)
         padding: 0.75em;
         cursor: pointer;
     }
-    #submitMessage {display: none; color: white;}
+    #submitMessage 
+    {
+        display: none; 
+        grid-column: 1/-1; 
+        color: white; 
+        width: 100%;
+        justify-content: center;
+        align-content: center;
+    }
     @media only screen
     and (max-width: 980px)
     {
