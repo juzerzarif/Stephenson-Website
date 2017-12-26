@@ -259,11 +259,11 @@ Division 5 - Ownership and Creator
     align-items: center;
     vertical-align: middle;
     justify-content: space-between;
-    margin-left: 5px;
+    padding: 5px;
 
     font-family: "Ubuntu", sans-serif;
     font-weight: bold;
-    font-size: 1.5vh;
+    font-size: minmax(1.5vh, 14px);
 }
 .div5 img {height: 80%; width: auto;}
 .div5 button

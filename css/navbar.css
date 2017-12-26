@@ -6,7 +6,7 @@ navigation header bar
 {
     display: grid;
     grid-template-columns: 67px repeat(8, 1fr);
-    overflow: hidden;
+    overflow: auto;
     background: #333;
     color: white;
     font-family: "Montserrat", sans-serif;
