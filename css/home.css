@@ -12,7 +12,7 @@ Main body grid
 -----------------------------------------------------------------*/
 .mainbody
 {
-    margin-top: 46px;
+    /*margin-top: 46px;*/
     z-index: 2;
     display: grid;
     grid-template-columns: minmax(720px, 100%);
