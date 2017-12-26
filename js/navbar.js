@@ -1,5 +1,13 @@
 let isNavShow = false;
 
+//
+// determine if device is a mobile device or not
+//
+function isMobile() 
+{
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 $(document).ready(function()
 {
 
@@ -32,7 +40,7 @@ $(document).ready(function()
     // Switching between mobile mode and desktop mode when window is resized
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    $(window).resize(function()
+    /*$(window).resize(function()
     {
         if(!isMobile())
         {
@@ -51,7 +59,7 @@ $(document).ready(function()
                 isNavShow=false; 
             }
         }
-    });
+    });*/
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 

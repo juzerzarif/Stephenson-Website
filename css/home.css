@@ -15,12 +15,12 @@ Main body grid
     margin-top: 46px;
     z-index: 2;
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: minmax(720px, 100%);
     grid-template-rows: 102vh auto 102vh auto 5vh;
     grid-gap: 0px;
 }
 @media only screen 
-and (max-width: 980px)
+and (max-device-width: 980px)
 {
     .mainbody
     {
@@ -59,7 +59,7 @@ Division 1 - Main heading
     color: #71A6DC;
 }
 @media only screen
-and (max-width: 980px)
+and (max-device-width: 980px)
 {
     #div1, #div3 { font-size: 3.25vh; -webkit-text-stroke-width: 0.2vh;}
     #heading { font-size: 7vh; }
@@ -88,7 +88,7 @@ Division 2 - Informational blurb
 .info div { width: 100%; margin: auto; padding: 12px 12px;}
 
 @media only screen
-and (max-width: 980px)
+and (max-device-width: 980px)
 {
     .infoImg { display: none; }
     .div2 { display: block; }
@@ -108,7 +108,7 @@ iframe
     box-shadow: 0 0 20px 0.5vw black;
 }
 @media only screen 
-and (max-width: 980px)
+and (max-device-width: 980px)
 {
     #div3 {background-image: none; background-color: black;}
     iframe
@@ -131,7 +131,7 @@ Divison 4 - Contact info and query form
     /*overflow: auto;*/
 }
 @media only screen
-and (max-width: 980px)
+and (max-device-width: 980px)
 {
     .div4
     {
@@ -157,7 +157,7 @@ and (max-width: 980px)
     }
     .contact h1 {font-weight: 900; font-size: 4em; padding: 12px 12px; text-align: center; margin: 0 0;} 
     @media only screen
-    and (max-width: 980px)
+    and (max-device-width: 980px)
     {
         .contact { grid-column-end: span 1; }
         .contact h1 { font-size: 6em; }
@@ -176,7 +176,7 @@ and (max-width: 980px)
     .address img {width: 20%; min-width: 5em; height: auto;}
     .address h1 {font-weight: 900;}
     @media only screen
-    and (max-width: 980px)
+    and (max-device-width: 980px)
     {
         .address 
         { 
@@ -242,7 +242,7 @@ and (max-width: 980px)
         align-content: center;
     }
     @media only screen
-    and (max-width: 980px)
+    and (max-device-width: 980px)
     {
         .message { padding: 12px 12px; margin: auto; margin-top: auto; margin-right: auto; }
         form div {max-width: 100%;}
@@ -276,7 +276,7 @@ Division 5 - Ownership and Creator
     width: 6vh;
 }
 @media only screen
-and (max-width: 980px) 
+and (max-device-width: 980px) 
 {
     .div5 button {display: none;}    
 }
