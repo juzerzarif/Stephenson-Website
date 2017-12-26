@@ -97,7 +97,7 @@ and (max-device-width: 980px)
         display: none;
         grid-template-rows: repeat(8, 1fr);
         grid-template-columns: 100%;
-        overflow: scroll;
+        overflow: visible;
         background-color: #767676;
         color: white;
         position: fixed;
