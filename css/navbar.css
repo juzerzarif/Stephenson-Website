@@ -107,6 +107,7 @@ and (max-device-width: 980px)
         margin-top: 7vh;
         left: -40%;
         width: 40%;
+        min-width: 0;
         height: 93vh;
     }
     .navbar a {font-size: 250%; margin: 0;}
