@@ -17,6 +17,14 @@ Main body
     min-width: 720px;
     height: 100%;
 }
+@media only screen
+and (max-device-width: 980px)
+{
+    .mainbody
+    {
+        grid-template-rows: auto auto minmax(5vh, 3em);
+    }
+}
 
 /*---------------------------------------------------------------
 Division 1 - Title 
