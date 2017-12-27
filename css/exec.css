@@ -53,7 +53,7 @@ and (max-device-width: 980px)
     }
     .title > #heading
     {
-        font-size: 8em;
+        font-size: 5em;
     }
 }
 
@@ -99,6 +99,10 @@ Division 2 - Info
 @media only screen
 and (max-device-width: 980px)
 {
+    .info > .member
+    {
+        line-height: 3em;
+    }
     .info > .member > position
     {
         font-size: 2.5em;
