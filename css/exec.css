@@ -12,13 +12,35 @@ Main body
 {
     display: grid;
     grid-template-columns: minmax(720px, 100%);
-    grid-template-rows: auto auto 5vh;
+    grid-template-rows: minmax(30vh, auto) auto 5vh;
 }
 
 /*---------------------------------------------------------------
 Division 1 - Title 
 -----------------------------------------------------------------*/
+.title
+{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
 
+    background-image: url("../resources/exec/title-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    padding: 1em;
+}
+.title > #heading
+{
+    font-size: 4em;
+    font-weight: 900;
+    color: #E5D3B7;
+    -webkit-text-stroke: 0.05em black;
+}
 
 /*---------------------------------------------------------------
 Division 2 - Info 

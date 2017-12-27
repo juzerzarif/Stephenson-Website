@@ -157,7 +157,13 @@ function handleVisibilityChange() {
 
 $(document).ready(function(){
     
-        
+    $(window).load(function()
+    {
+        if(!isMobile()) { $(".mainbody").css("margin-top", ($(".navbar").height() + 30)); }
+        else { $(".mainbody").css("margin-top", $(".mobile-nav").height()); }    
+    });
+    
+    
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Video pause on navbar trigger on mobile
@@ -215,7 +221,8 @@ $(document).ready(function(){
     {
         if(!isMobile())
         {
-            $("#titleText").css("opacity", 1 - $(window).scrollTop()/700);
+            var top = $(window).scrollTop() + $(".navbar").height() + 30;
+            $("#titleText").css("opacity", 1 - top/700);
         }
     });
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
