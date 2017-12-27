@@ -6,13 +6,99 @@ body
 }
 
 /*---------------------------------------------------------------
+Overlay 
+-----------------------------------------------------------------*/
+.overlay
+{
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    filter: alpha(opacity=50);
+    -moz-opacity:0.5; 
+	-khtml-opacity: 0.5; 
+	opacity: 0.5;
+    background-color: black;
+    position: fixed;
+}
+
+/*---------------------------------------------------------------
+Dialog boxes 
+-----------------------------------------------------------------*/
+.dialog
+{
+    display: block;
+    z-index: 20;
+    width: 28vw;
+    min-width: 480px;
+    height: 67vh;
+    min-height: 640px;
+
+    margin: auto;
+    padding: 2em;
+    top: 0; left: 0; bottom: 0; right: 0;
+    position: fixed;
+
+    background-color: white;
+    border-radius: 5%;
+    box-shadow: 0 0 2em black;
+}
+#president-dialog { display: block; }
+.dialog > #dialog-content
+{
+    overflow-wrap: break-word; 
+    overflow-y: auto;
+    max-height: 62vh;
+    min-height: 600px;
+    font-family: "Nunito Sans", sans-serif;
+}
+.dialog > #dialog-content > #intro-header
+{
+    min-height: 15em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid black;
+}
+.dialog > #dialog-content > #intro-header > img
+{
+    height: 15em;
+    width: auto;
+    border-radius: 50%;
+    float: left;
+    margin-right: 1em; margin-bottom: 1em;
+}
+.dialog > #dialog-content > #intro-header > name
+{
+    font-size: 1.5em;
+    font-weight: 900;
+    text-decoration: underline;
+}
+.dialog > #dialog-content > #intro-header > #about
+{
+    clear: right;
+    padding-top: 1em; padding-bottom: 1em;
+    color: #5C5C5C;
+}
+.dialog > #dialog-content > #description > p { font-weight: 900; font-size: 1.5em; }
+.dialog > #dialog-content > #description > ul { color: #5C5C5C; }
+.dialog > button
+{
+    display: block;
+    margin:10px auto 0;
+    padding: 1em;
+    background-color: #E93939;
+    color: white;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+}
+
+/*---------------------------------------------------------------
 Main body 
 -----------------------------------------------------------------*/
 .mainbody
 {
     display: grid;
     grid-template-columns: minmax(720px, 100%);
-    grid-template-rows: minmax(30vh, auto) auto minmax(5vh, 3em);
+    grid-template-rows: minmax(25em, auto) auto minmax(5vh, 3em);
     width: 100%;
     min-width: 720px;
     height: 100%;
