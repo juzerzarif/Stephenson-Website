@@ -44,6 +44,18 @@ Division 1 - Title
     color: #E5D3B7;
     -webkit-text-stroke: 0.05em black;
 }
+@media only screen
+and (max-device-width: 980px)
+{
+    .title
+    {
+        font-size: 2em;
+    }
+    .title > #heading
+    {
+        font-size: 8em;
+    }
+}
 
 /*---------------------------------------------------------------
 Division 2 - Info 
@@ -83,6 +95,19 @@ Division 2 - Info
 {
     color: #EDDFC9;
     text-shadow: 0 0 0.2em black;
+}
+@media only screen
+and (max-device-width: 980px)
+{
+    .info > .member > position
+    {
+        font-size: 2.5em;
+    }
+    .info > .member > name
+    {
+        font-size: 2em;
+        text-shadow: 0 0 0.4em black;
+    }
 }
 
 /*---------------------------------------------------------------
