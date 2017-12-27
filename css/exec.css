@@ -179,6 +179,7 @@ Division 2 - Info
     height: 13em;
     width: auto;
     border-radius: 50%;
+    cursor: pointer;
 }
 .info > .member > position
 {
