@@ -1,4 +1,57 @@
 body
 {
     margin: 0px;
+    background-color: blanchedalmond;
+    font-family: "Montserrat", sans-serif;
+}
+
+/*---------------------------------------------------------------
+Main body 
+-----------------------------------------------------------------*/
+.mainbody
+{
+    display: grid;
+    grid-template-columns: minmax(720px, 100%);
+    grid-template-rows: auto auto 5vh;
+}
+
+/*---------------------------------------------------------------
+Division 1 - Title 
+-----------------------------------------------------------------*/
+
+
+/*---------------------------------------------------------------
+Division 2 - Info 
+-----------------------------------------------------------------*/
+
+
+/*---------------------------------------------------------------
+Division 3 - Ownership and Creator 
+-----------------------------------------------------------------*/
+.ownership
+{
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: space-between;
+    padding: 5px;
+
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    font-size: 1.5vh;
+}
+.ownership img {height: 80%; width: auto;}
+.ownership button
+{
+    border: 0;
+    background: none;
+    box-shadow: none;
+    cursor: pointer;
+    height: 5vh;
+    width: 6vh;
+}
+@media only screen
+and (max-device-width: 980px) 
+{
+    .ownership button {display: none;}    
 }

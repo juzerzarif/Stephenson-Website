@@ -51,7 +51,7 @@ Division 1 - Main heading
     -webkit-text-stroke-width: 0.15vw;
     -webkit-text-stroke-color: black;
 }
-#div1 {background-image: url("../images/background1.jpg");}
+#div1 {background-image: url("../resources/home/background1.jpg");}
 #heading
 {
     font-weight: 900;
@@ -98,7 +98,7 @@ and (max-device-width: 980px)
 /*---------------------------------------------------------------
 Division 3 - Hall introductory video
 -----------------------------------------------------------------*/
-#div3 {background-image: url("../images/background2.jpg"); overflow: hidden;}
+#div3 {background-image: url("../resources/home/background2.jpg"); overflow: hidden;}
 iframe
 {
     height: 33.75vw;
@@ -263,7 +263,7 @@ Division 5 - Ownership and Creator
 
     font-family: "Ubuntu", sans-serif;
     font-weight: bold;
-    font-size: minmax(1.5vh, 14px);
+    font-size: 1.5vh;
 }
 .div5 img {height: 80%; width: auto;}
 .div5 button
