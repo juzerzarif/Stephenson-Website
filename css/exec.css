@@ -10,6 +10,7 @@ Overlay
 -----------------------------------------------------------------*/
 .overlay
 {
+    display: none;
     z-index: 10;
     width: 100%;
     height: 100%;
@@ -26,7 +27,7 @@ Dialog boxes
 -----------------------------------------------------------------*/
 .dialog
 {
-    display: block;
+    display: none;
     z-index: 20;
     width: 28vw;
     min-width: 480px;
@@ -42,7 +43,6 @@ Dialog boxes
     border-radius: 5%;
     box-shadow: 0 0 2em black;
 }
-#president-dialog { display: block; }
 .dialog > #dialog-content
 {
     overflow-wrap: break-word; 

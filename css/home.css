@@ -16,7 +16,7 @@ Main body grid
     z-index: 2;
     display: grid;
     grid-template-columns: minmax(720px, 100%);
-    grid-template-rows: 102vh auto 102vh auto 5vh;
+    grid-template-rows: 102vh auto minmax(102vh, auto) auto 5vh;
     grid-gap: 0px;
 }
 @media only screen 
@@ -59,6 +59,12 @@ Division 1 - Main heading
     color: #71A6DC;
 }
 @media only screen
+and (max-width: 720px)
+{
+    #div1, #div3 { font-size: 18px; -webkit-text-stroke-color: 1px; }
+    #heading { font-size: 36px; }
+}
+@media only screen
 and (max-device-width: 980px)
 {
     #div1, #div3 { font-size: 3.25vh; -webkit-text-stroke-width: 0.2vh;}
@@ -87,8 +93,8 @@ Division 2 - Informational blurb
 .info { grid-column: 2/-1; display: flex; vertical-align: middle; min-height: 40vh; }
 .info div { width: 100%; margin: auto; padding: 12px 12px;}
 
-@media only screen
-and (max-device-width: 980px)
+@media only screen and (max-device-width: 980px),
+ only screen and (max-width: 720px)
 {
     .infoImg { display: none; }
     .div2 { display: block; }
@@ -102,7 +108,9 @@ Division 3 - Hall introductory video
 iframe
 {
     height: 33.75vw;
-    width: 60%;
+    min-height: 243px;
+    width: 60vw;
+    min-width: 432px;
     font-family: Arial, Helvetica, sans-serif;
     -webkit-text-stroke-width: 0;
     box-shadow: 0 0 20px 0.5vw black;

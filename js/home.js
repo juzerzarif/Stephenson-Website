@@ -19,17 +19,17 @@ $.fn.isOnScreen = function(){
         var win = $(window);
     
         var viewport = {
-            top : win.scrollTop(),
+            top : win.scrollTop() + 40,
             left : win.scrollLeft()
         };
-        viewport.right = viewport.left + win.width();
-        viewport.bottom = viewport.top + win.height();
+        viewport.right = win.scrollLeft() + win.width();
+        viewport.bottom = win.scrollTop() + win.height();
     
         var bounds = this.offset();
-        bounds.right = bounds.left + this.outerWidth();
-        bounds.bottom = bounds.top + this.outerHeight();
+        bounds.horizontalLimit = bounds.left + (this.outerWidth()/2);
+        bounds.verticalLimit = bounds.top + (this.outerHeight()/2);
     
-        return (!(viewport.right < bounds.right || viewport.left > bounds.left || viewport.bottom < bounds.bottom || viewport.top > bounds.top));
+        return (!(viewport.right < bounds.horizontalLimit || viewport.left > bounds.horizontalLimit || viewport.bottom < bounds.verticalLimit || viewport.top > bounds.verticalLimit));
     };
 
 //
