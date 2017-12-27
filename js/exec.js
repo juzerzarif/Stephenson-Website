@@ -24,8 +24,8 @@ $(document).ready(function()
     {
         if(!isMobile())
         {
-            var top = $(window).scrollTop() + $(".navbar").height() + 30;
-            $("#heading").css("opacity", 1 - top/700);
+            var top = $(window).scrollTop();
+            $("#heading").css("opacity", 1 - top/200);
         }
     });
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------

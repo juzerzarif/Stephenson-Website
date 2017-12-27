@@ -12,7 +12,10 @@ Main body
 {
     display: grid;
     grid-template-columns: minmax(720px, 100%);
-    grid-template-rows: minmax(30vh, auto) auto 5vh;
+    grid-template-rows: minmax(30vh, auto) auto minmax(5vh, 3em);
+    width: 100%;
+    min-width: 720px;
+    height: 100%;
 }
 
 /*---------------------------------------------------------------
@@ -45,7 +48,42 @@ Division 1 - Title
 /*---------------------------------------------------------------
 Division 2 - Info 
 -----------------------------------------------------------------*/
+.info
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    grid-auto-rows: minmax(20em, auto);
+    grid-gap: 1em;
 
+    padding: 2em;
+    background-color: #D89C3D;
+}
+.info > .member
+{
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1.5em;
+}
+.info > .member > img
+{
+    height: 13em;
+    width: auto;
+    border-radius: 50%;
+}
+.info > .member > position
+{
+    font-size: 1.25em;
+    font-weight: 900;
+}
+.info > .member > name
+{
+    color: #EDDFC9;
+    text-shadow: 0 0 0.2em black;
+}
 
 /*---------------------------------------------------------------
 Division 3 - Ownership and Creator 
@@ -60,7 +98,7 @@ Division 3 - Ownership and Creator
 
     font-family: "Ubuntu", sans-serif;
     font-weight: bold;
-    font-size: 1.5vh;
+    font-size: 1em;
 }
 .ownership img {height: 80%; width: auto;}
 .ownership button
@@ -69,7 +107,8 @@ Division 3 - Ownership and Creator
     background: none;
     box-shadow: none;
     cursor: pointer;
-    height: 5vh;
+    height: 3em;
+    min-height: 5vh;
     width: 6vh;
 }
 @media only screen
