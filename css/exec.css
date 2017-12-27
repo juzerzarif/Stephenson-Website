@@ -40,8 +40,16 @@ Dialog boxes
     position: fixed;
 
     background-color: white;
-    border-radius: 5%;
+    border-radius: 2em;
     box-shadow: 0 0 2em black;
+
+    animation-name: zoom;
+    animation-duration: 0.5s;
+}
+@keyframes zoom
+{
+    from { transform: scale(0) }
+    to { transform: scale(1) }
 }
 .dialog > #dialog-content
 {
@@ -93,7 +101,7 @@ Dialog boxes
 @media only screen
 and (max-device-width: 980px)
 {
-    .dialog { width: 720px; height: 960px; }
+    .dialog { width: 720px; height: 1000px; }
     .dialog > #dialog-content { height: 900px; }
     .dialog > #dialog-content > #intro-header > name { font-size: 3em; }
     .dialog > #dialog-content > #intro-header > #about { font-size: 2em; }
