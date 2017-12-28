@@ -67,17 +67,26 @@ $(document).ready(function()
         {
             $(".navbar").css("display", "grid"); 
             $(".navbar").animate({left: '+=40%'});
-            $(".mainbody").fadeTo("normal", 0.5);
+            //$(".mainbody").fadeTo("normal", 0.5);
+            $(".navbar-overlay").css("display", "block");
             isNavShow=true;
         }
         else 
         {
             $(".navbar").animate({left: '-=40%'});
             /*$(".navbar").css("display", "none");*/
-            $(".mainbody").fadeTo("normal", 1);
+            //$(".mainbody").fadeTo("normal", 1);
+            $(".navbar-overlay").css("display", "none");
             isNavShow=false;
         }
         
+    });
+    $(".navbar-overlay").click(function(){
+        $(".navbar").animate({left: '-=40%'});
+        /*$(".navbar").css("display", "none");*/
+        //$(".mainbody").fadeTo("normal", 1);
+        $(".navbar-overlay").css("display", "none");
+        isNavShow=false;
     });
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
