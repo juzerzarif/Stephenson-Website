@@ -81,7 +81,9 @@ $(document).ready(function()
         }
         
     });
-    $(".navbar-overlay").click(function(){
+    $(".navbar-overlay").click(function()
+    {
+        $("#nav-trig").toggleClass("change");
         $(".navbar").animate({left: '-=40%'});
         /*$(".navbar").css("display", "none");*/
         //$(".mainbody").fadeTo("normal", 1);
