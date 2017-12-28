@@ -1,3 +1,4 @@
+
 //
 // determine if device is a mobile device or not
 //
@@ -69,21 +70,39 @@ $(document).ready(function()
     // Info dialog open and close
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    let id = "";
+
     $(".member img").click(function()
     {
-        let id = $(this).attr("id") + "-dialog";
+        id = "#" + $(this).attr("id") + "-dialog";
         console.log(id);
         $(".overlay").css("display", "block");
-        document.getElementById(id).style.display = "block";
+        $(id).css("display", "block");
+        $(id).addClass("transform-out");
+        setTimeout(function(){ $(id).removeClass("transform-out"); }, 700);
     });
+
     $(".dialog button").click(function()
     {
-        $(".dialog").css("display", "none");
+        $(id).addClass("transform-in");
+        setTimeout(function()
+        { 
+            $(".dialog").css("display", "none");
+            $(id).removeClass("transform-in");
+        }, 400);
+        
         $(".overlay").css("display", "none");
     });
+
     $(".overlay").click(function()
     {
-        $(".dialog").css("display", "none");
+        $(id).addClass("transform-in");
+        setTimeout(function()
+        {
+            $(".dialog").css("display", "none");
+            $(id).removeClass("transform-in");
+        }, 400);
+        
         $(".overlay").css("display", "none");
     });
 

@@ -1,0 +1,37 @@
+.transform-out
+{
+    animation: zoomIn 0.5s, fadeIn 0.7s;
+    -webkit-animation: zoomIn 0.5s, fadeIn 0.7s;
+    -moz-animation: zoomIn 0.5s, fadeIn 0.7s;
+    -ms-animation: zoomIn 0.5s, fadeIn 0.7s;
+    -o-animation: zoomIn 0.5s, fadeIn 0.7s;
+}
+@keyframes zoomIn { from { transform: scale(0) } to { transform: scale(1) } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@-webkit-keyframes zoomIn { from { transform: scale(0) } to { transform: scale(1) } }
+@-webkit-keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@-moz-keyframes zoomIn { from { transform: scale(0) } to { transform: scale(1) } }
+@-moz-keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@-ms-keyframes zoomIn { from { transform: scale(0) } to { transform: scale(1) } }
+@-ms-keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@-o-keyframes zoomIn { from { transform: scale(0) } to { transform: scale(1) } }
+@-o-keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.transform-in
+{
+    animation: zoomOut 0.5s, fadeOut 0.7s;
+    -webkit-animation: zoomOut 0.5s, fadeOut 0.7s;
+    -moz-animation: zoomOut 0.5s, fadeOut 0.7s;
+    -ms-animation: zoomOut 0.5s, fadeOut 0.7s;
+    -o-animation: zoomOut 0.5s, fadeOut 0.7s;
+}
+@keyframes zoomOut { from { transform: scale(1) } to { transform: scale(0) } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+@-webkit-keyframes zoomOut { from { transform: scale(1) } to { transform: scale(0) } }
+@-webkit-keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+@-moz-keyframes zoomOut { from { transform: scale(1) } to { transform: scale(0) } }
+@-moz-keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+@-ms-keyframes zoomOut { from { transform: scale(1) } to { transform: scale(0) } }
+@-ms-keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+@-o-keyframes zoomOut { from { transform: scale(1) } to { transform: scale(0) } }
+@-o-keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }

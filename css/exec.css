@@ -42,14 +42,6 @@ Dialog boxes
     background-color: white;
     border-radius: 2em;
     box-shadow: 0 0 2em black;
-
-    animation-name: zoom;
-    animation-duration: 0.5s;
-}
-@keyframes zoom
-{
-    from { transform: scale(0) }
-    to { transform: scale(1) }
 }
 .dialog > #dialog-content
 {
@@ -125,10 +117,7 @@ Main body
 @media only screen
 and (max-device-width: 980px)
 {
-    .mainbody
-    {
-        grid-template-rows: auto auto minmax(5vh, 3em);
-    }
+    .mainbody { grid-template-rows: auto auto minmax(5vh, 3em); }
 }
 
 /*---------------------------------------------------------------
@@ -160,14 +149,8 @@ Division 1 - Title
 @media only screen
 and (max-device-width: 980px)
 {
-    .title
-    {
-        font-size: 2em;
-    }
-    .title > #heading
-    {
-        font-size: 4em;
-    }
+    .title { font-size: 2em; }
+    .title > #heading { font-size: 4em; }
 }
 
 /*---------------------------------------------------------------
@@ -213,14 +196,8 @@ Division 2 - Info
 @media only screen
 and (max-device-width: 980px)
 {
-    .info > .member
-    {
-        line-height: 3em;
-    }
-    .info > .member > position
-    {
-        font-size: 2.5em;
-    }
+    .info > .member { line-height: 3em; }
+    .info > .member > position { font-size: 2.5em; }
     .info > .member > name
     {
         font-size: 2em;
