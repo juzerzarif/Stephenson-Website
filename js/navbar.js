@@ -19,11 +19,20 @@ $(document).ready(function()
     $(document).on('click', 'a[href^="#"]', function (event) {
         event.preventDefault();
     
-        $('html, body').animate({
-            scrollTop: $($.attr(this, 'href')).offset().top
-        }, 600);
-        console.log($(window).width);
-        if($(window).width() <= 980)
+        if(!isMobile())
+        {
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top - $(".navbar").height() - 30
+            }, 600);
+        }
+        else
+        {
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top + $(".mobile-nav").height()
+            }, 600);
+        }
+        console.log($(window).width());
+        if(isMobile())
         {
            $(".navbar").css({"display":"none","left":"-40%"});
            $("#nav-trig").removeClass("change");

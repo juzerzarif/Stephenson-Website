@@ -1,0 +1,166 @@
+body
+{
+    margin: 0;
+    background-color: blanchedalmond;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+/*---------------------------------------------------------------
+Main body 
+-----------------------------------------------------------------*/
+.mainbody
+{
+    display: grid;
+    grid-template-columns: minmax(720px, 100%);
+    grid-template-rows: minmax(25em, auto) auto minmax(5vh, 3em);
+    width: 100%;
+    min-width: 720px;
+    height: 100%;
+}
+@media only screen
+and (max-device-width: 980px)
+{
+    .mainbody { grid-template-rows: auto auto minmax(5vh, 3em); }
+}
+
+/*---------------------------------------------------------------
+Division 1 - Title 
+-----------------------------------------------------------------*/
+.title
+{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
+    background-image: url("../resources/staff/background.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    padding: 1em;
+}
+.title > #heading
+{
+    font-size: 4em;
+    font-weight: 900;
+    color: #E5D3B7;
+    -webkit-text-stroke: 0.05em black;
+}
+@media only screen
+and (max-device-width: 980px)
+{
+    .title { font-size: 2em; }
+}
+
+/*---------------------------------------------------------------
+Division 2 - Info 
+-----------------------------------------------------------------*/
+.info
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(576px, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 0em;
+
+    background-color: #D89C3D;
+    padding: 2em 0;
+    font-weight: 400;
+}
+.member
+{
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+//#proctor {border-right: 2px solid blanchedalmond;}
+//#fbm {border-left: 2px solid blanchedalmond;}
+@media only screen and (min-width: 1728px)
+{
+.member:not(:last-of-type) {border-right: 2px solid blanchedalmond;}
+}
+@media only screen and (max-width: 1727px) and (min-width: 1168px)
+{
+    .member:not(:nth-of-type(2n)) {border-right: 2px solid blanchedalmond;}
+    .member:last-of-type:nth-of-type(odd) {grid-column: 1/-1; border: none; max-width: 50vw; margin: auto;}
+}
+@media only screen and (max-width: 1167px)
+{
+    .member {border-right: none;}
+    .member:not(:last-of-type) {border-bottom: 2px solid blanchedalmond;}
+}
+.member > img
+{
+    height: 18em;
+    width: auto;
+    border-radius: 50%;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+.member > position
+{
+    font-size: 2em;
+    font-weight: 700;
+}
+.member > name
+{
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #E5D3B7;
+    text-shadow: 0 0 0.5em black;
+}
+.member > #about, .member > #description
+{
+    padding: 1.5em 0;
+    margin: 0 1.5em;
+}
+.member > #about
+{
+    border-bottom: 1px none blanchedalmond;
+}
+.member > #description > name
+{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+@media only screen
+and (max-device-width: 980px)
+{
+    .info {grid-template-columns: 100%;}
+}
+
+/*---------------------------------------------------------------
+Division 3 - Ownership and Creator 
+-----------------------------------------------------------------*/
+.ownership
+{
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: space-between;
+    padding: 5px;
+
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+}
+.ownership img {height: 80%; width: auto;}
+.ownership button
+{
+    border: 0;
+    background: none;
+    box-shadow: none;
+    cursor: pointer;
+    height: 3em;
+    min-height: 5vh;
+    width: 3em;
+    min-width: 5vh;
+}
+@media only screen
+and (max-device-width: 980px) 
+{
+    .ownership button {display: none;}    
+}

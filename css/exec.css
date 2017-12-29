@@ -3,6 +3,7 @@ body
     margin: 0px;
     background-color: blanchedalmond;
     font-family: "Montserrat", sans-serif;
+    font-weight: 600;
 }
 
 /*---------------------------------------------------------------
@@ -186,7 +187,7 @@ Division 2 - Info
 .info > .member > position
 {
     font-size: 1.25em;
-    font-weight: 900;
+    font-weight: 700;
 }
 .info > .member > name
 {
@@ -229,7 +230,8 @@ Division 3 - Ownership and Creator
     cursor: pointer;
     height: 3em;
     min-height: 5vh;
-    width: 6vh;
+    width: 3em;
+    min-width: 5vh;
 }
 @media only screen
 and (max-device-width: 980px) 

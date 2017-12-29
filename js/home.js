@@ -77,7 +77,8 @@ function onYouTubeIframeAPIReady()
 function onPlayerStateChange(event)
 {
     var status = event.data;
-    if(status == 1) { vidPause = false; console.log("video play: "+vidPause); } //VIDEO IS PLAYING
+    if(status == 0) { vidPause = true; console.log("video end: "+vidPause); } //VIDEO ENDED
+    else if(status == 1) { vidPause = false; console.log("video play: "+vidPause); } //VIDEO IS PLAYING
     else if(status == 2) //VIDEO IS PAUSED
     { 
         vidPause = true; console.log("video pause: "+vidPause); 

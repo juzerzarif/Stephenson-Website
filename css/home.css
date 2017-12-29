@@ -16,7 +16,7 @@ Main body grid
     z-index: 2;
     display: grid;
     grid-template-columns: minmax(720px, 100%);
-    grid-template-rows: 102vh auto minmax(102vh, auto) auto 5vh;
+    grid-template-rows: 102vh auto minmax(102vh, auto) auto minmax(5vh, 3em);
     grid-gap: 0px;
 }
 @media only screen 
@@ -82,6 +82,7 @@ Division 2 - Informational blurb
     grid-template-rows: 100%;
     grid-column-gap: 1%;
     padding: 50px;
+    font-weight: 600;
 }
 .infoImg { padding: 12px; }
 .infoImg img
@@ -136,6 +137,7 @@ Divison 4 - Contact info and query form
     grid-template-rows: repeat(2, auto);
     grid-gap: 1%;
     padding: 50px;
+    font-weight: 600;
     /*overflow: auto;*/
 }
 @media only screen
@@ -234,7 +236,8 @@ and (max-device-width: 980px)
         float: right; 
         background-color: white;
         color: #D89C3D; 
-        font-family: 'Montserrat', sans-serif; 
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600; 
         border: none; 
         border-radius: 0.5em;
         padding: 0.75em;
@@ -271,7 +274,7 @@ Division 5 - Ownership and Creator
 
     font-family: "Ubuntu", sans-serif;
     font-weight: bold;
-    font-size: 1.5vh;
+    font-size: 1em;
 }
 .div5 img {height: 80%; width: auto;}
 .div5 button
@@ -280,8 +283,10 @@ Division 5 - Ownership and Creator
     background: none;
     box-shadow: none;
     cursor: pointer;
-    height: 5vh;
-    width: 6vh;
+    height: 3em;
+    min-height: 5vh;
+    width: 3em;
+    min-width: 5vh;
 }
 @media only screen
 and (max-device-width: 980px) 
