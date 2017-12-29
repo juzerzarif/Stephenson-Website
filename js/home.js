@@ -1,5 +1,5 @@
 let navToggle = false;
-let vidPause = false;
+let vidPause = true;
 let focus = true;
 let access = true;
 
@@ -43,35 +43,6 @@ function scrollNudge()
     $(window).focus();
 }
 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Setting up the PageVisibility API
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// Set the name of the hidden property and the change event for visibility
-var hidden, visibilityChange; 
-if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
-  hidden = "hidden";
-  visibilityChange = "visibilitychange";
-} else if (typeof document.msHidden !== "undefined") {
-  hidden = "msHidden";
-  visibilityChange = "msvisibilitychange";
-} else if (typeof document.webkitHidden !== "undefined") {
-  hidden = "webkitHidden";
-  visibilityChange = "webkitvisibilitychange";
-}
-
-// Warn if the browser doesn't support addEventListener or the Page Visibility API
-if (typeof document.addEventListener === "undefined" || typeof document.hidden === "undefined") {
-    console.log("This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.");
-  } else {
-    // Handle page visibility change   
-    document.addEventListener(visibilityChange, handleVisibilityChange, false);
-  }
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -100,6 +71,7 @@ function onYouTubeIframeAPIReady()
         'onStateChange': onPlayerStateChange
     }
     });
+    scrollNudge();
 }
 
 function onPlayerStateChange(event)
@@ -117,43 +89,17 @@ function pauseYTVideo()
 {
     player.pauseVideo(); 
     setTimeout(function(){
-        vidPause=false; console.log(vidPause);
+        vidPause=false; console.log("video soft pause: "+vidPause);
     }, 100);
 }
-
-//Event handlers to handle video play pause
-$(window).scroll(function()
-{
-    if(!vidPause)
-    {
-        if( !isMobile || $(window).width>963)
-        {
-            if($("#welcomeVideo").isOnScreen()) { player.playVideo(); }
-            else { pauseYTVideo(); }
-        }
-        else
-        {
-            if(!navToggle)
-            {
-                if($("#welcomeVideo").isOnScreen()) { player.playVideo(); }
-                else { pauseYTVideo(); }
-            }
-        }
-    }
-});
-
-function handleVisibilityChange() {
-    if (document[hidden]) {
-      if(!vidPause) { pauseYTVideo(); }
-      access = false;
-    } else {
-      scrollNudge(); //when window becomes visible, scroll to activate scroll events 
-    }
-  }
-
-
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 $(document).ready(function(){
     
@@ -173,10 +119,10 @@ $(document).ready(function(){
     {
         if(!vidPause)
         {
-            if(!navToggle) { navToggle=true; pauseYTVideo(); }
-            else
+            if(!navToggle) { navToggle=true; pauseYTVideo(); } //navbar out
+            else //navbar in
             {
-                if($("#welcomeVideo").isOnScreen()) { player.playVideo(); }
+                player.playVideo();
                 navToggle = false;
             }
         }
