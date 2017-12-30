@@ -83,6 +83,11 @@ Division 2 - Info
     width: 100%;
     object-fit: cover;
 }
+@media only screen
+and (max-device-width: 980px)
+{
+    #sccordion > h3 {font-size: 16px;}
+}
 
 /*---------------------------------------------------------------
 Division 3 - Ownership and Creator 
