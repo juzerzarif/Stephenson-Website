@@ -87,12 +87,7 @@ Division 2 - Info
     padding: 1em;
     margin-bottom: 1em;
 }
-.member > position
-{
-    font-size: 2em;
-    font-weight: 700;
-    //color: white;
-}
+.member > position { font-size: 2em; font-weight: 700; }
 .member > name
 {
     font-size: 1.5em;
@@ -100,26 +95,17 @@ Division 2 - Info
     color: #E5D3B7;
     text-shadow: 0 0 0.5em black;
 }
-.member > #about, .member > #description
-{
-    padding: 1.5em 0;
-    margin: 0 1.5em;
-    //color: #B3B3B3;
-}
-.member > #about
-{
-    border-bottom: 1px none blanchedalmond;
-}
-.member > #description > name
-{
-    font-size: 1.5em;
-    font-weight: 600;
-    //color: white;
-}
+.member > #about, .member > #description { padding: 1.5em 0; margin: 0 1.5em; }
+.member > #description > name { font-size: 1.5em; font-weight: 600; }
 @media only screen
 and (max-device-width: 980px)
 {
     .info {grid-template-columns: 100%;}
+    .member > img { height: 20em; width: auto; }
+    .member > position {font-size: 3em;}
+    .member > name {font-size: 2.5em;}
+    .member > #about, .member > #description {font-size: 2em;}
+    .member > #description > name {font-size: 2.5em;}
 }
 
 /*---------------------------------------------------------------
