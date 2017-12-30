@@ -97,9 +97,9 @@ and (max-device-width: 980px)
     .dialog { width: 720px; height: 1000px; }
     .dialog > #dialog-content { height: 900px; }
     .dialog > #dialog-content > #intro-header > name { font-size: 3em; }
-    .dialog > #dialog-content > #intro-header > #about { font-size: 2em; }
+    .dialog > #dialog-content > #intro-header > #about { font-size: 2em; font-weight: 400; }
     .dialog > #dialog-content > #description > p { font-size: 3em; }
-    .dialog > #dialog-content > #description > ul { font-size: 2em; }
+    .dialog > #dialog-content > #description > ul { font-size: 2em; font-weight: 400; }
     .dialog > button { font-size: 2em; }
 }
 
