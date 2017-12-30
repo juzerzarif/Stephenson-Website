@@ -86,7 +86,7 @@ Division 2 - Info
 @media only screen
 and (max-device-width: 980px)
 {
-    #sccordion > h3 {font-size: 16px;}
+    #sccordion > h3 {font-size: 2.5em;}
 }
 
 /*---------------------------------------------------------------
