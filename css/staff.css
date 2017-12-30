@@ -105,7 +105,7 @@ and (max-device-width: 980px)
     .member > position {font-size: 3em;}
     .member > name {font-size: 2.5em;}
     .member > #about, .member > #description {font-size: 2em;}
-    .member > #description > name {font-size: 2.5em;}
+    //.member > #description > name {font-size: 2.5em;}
 }
 
 /*---------------------------------------------------------------
