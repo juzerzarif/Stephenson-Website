@@ -110,7 +110,7 @@ Main body
 {
     display: grid;
     grid-template-columns: minmax(720px, 100%);
-    grid-template-rows: minmax(25em, auto) auto minmax(5vh, 3em);
+    grid-template-rows: auto auto minmax(5vh, 3em);
     width: 100%;
     min-width: 720px;
     height: 100%;
