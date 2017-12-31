@@ -36,6 +36,7 @@ $(document).ready(function()
         {
            $(".navbar").css({"display":"none","left":"-40%"});
            $("#nav-trig").removeClass("change");
+           $(".navbar-overlay").css("display", "none");
            $(".mainbody").fadeTo("normal", 1); 
            isNavShow=false;  
         }
