@@ -87,6 +87,7 @@ Division 2 - Info
 and (max-device-width: 980px)
 {
     #accordion > h3 {font-size: 2.5em;}
+    #accordion > h3 > span {height: 2em; width: 2em;}
 }
 
 /*---------------------------------------------------------------
