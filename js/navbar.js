@@ -28,7 +28,7 @@ $(document).ready(function()
         else
         {
             $('html, body').animate({
-                scrollTop: $($.attr(this, 'href')).offset().top + $(".mobile-nav").height()
+                scrollTop: $($.attr(this, 'href')).offset().top - $(".mobile-nav").height()
             }, 600);
         }
         console.log($(window).width());
