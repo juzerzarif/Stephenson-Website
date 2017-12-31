@@ -6,7 +6,7 @@ navigation header bar
 .navbar
 {
     display: grid;
-    grid-template-columns: 67px repeat(8, 1fr);
+    grid-template-columns: 67px repeat(9, 1fr);
     overflow: auto;
     background: #333;
     color: white;
@@ -110,7 +110,7 @@ and (max-device-width: 980px)
     .navbar
     {
         display: none;
-        grid-template-rows: repeat(8, 1fr);
+        grid-template-rows: repeat(9, 1fr);
         grid-template-columns: 100%;
         overflow: auto;
         background-color: #767676;
