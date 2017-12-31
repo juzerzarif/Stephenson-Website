@@ -1,0 +1,56 @@
+body
+{
+    margin: 0;
+    background-color: blanchedalmond;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+/*---------------------------------------------------------------
+Main body 
+-----------------------------------------------------------------*/
+.mainbody
+{
+    display: grid;
+    grid-template-columns: minmax(720px, 100%);
+    grid-template-rows: max-content max-content minmax(5vh, 3em);
+    width: 100%;
+    min-width: 720px;
+    height: 100%;
+}
+@media only screen
+and (max-device-width: 980px)
+{
+    .mainbody { grid-template-rows: auto auto minmax(5vh, 3em); }
+}
+
+/*---------------------------------------------------------------
+Division 3 - Ownership and Creator 
+-----------------------------------------------------------------*/
+.ownership
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+}
+.ownership img {height: 80%; width: auto;}
+.ownership button
+{
+    border: 0;
+    background: none;
+    box-shadow: none;
+    cursor: pointer;
+    height: 3em;
+    min-height: 5vh;
+    width: 3em;
+    min-width: 5vh;
+}
+@media only screen
+and (max-device-width: 980px) 
+{
+    .ownership button {display: none;}    
+}
