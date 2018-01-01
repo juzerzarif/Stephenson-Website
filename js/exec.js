@@ -2,19 +2,20 @@
 //
 // determine if device is a mobile device or not
 //
-function isMobile() 
+function isMobile()
 {
+    if(/iPad/i.test(navigator.userAgent) && $(window).width() > 980) {return false;}
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
 $(document).ready(function()
 {
-    
+
     $(window).load(function()
     {
         if(!isMobile()) { $(".mainbody").css("margin-top", ($(".navbar").height() + 30)); }
-        else 
-        { 
+        else
+        {
             $(".mainbody").css("margin-top", $(".mobile-nav").height());
             $(".member").remove("br");
             $(".member").append("<br>");
@@ -26,7 +27,7 @@ $(document).ready(function()
     // Title card sizing based on content
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    
+
     $(window).bind("resize load", function(){
         let y = $("#heading").height() + $("#intro").height();
         console.log(y);
@@ -108,11 +109,11 @@ $(document).ready(function()
     {
         $(id).addClass("transform-in");
         setTimeout(function()
-        { 
+        {
             $(".dialog").css("display", "none");
             $(id).removeClass("transform-in");
         }, 400);
-        
+
         $(".overlay").css("display", "none");
     });
 
@@ -124,7 +125,7 @@ $(document).ready(function()
             $(".dialog").css("display", "none");
             $(id).removeClass("transform-in");
         }, 400);
-        
+
         $(".overlay").css("display", "none");
     });
 

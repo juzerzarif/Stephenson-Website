@@ -3,8 +3,9 @@ let isNavShow = false;
 //
 // determine if device is a mobile device or not
 //
-function isMobile() 
+function isMobile()
 {
+    if(/iPad/i.test(navigator.userAgent) && $(window).width() > 980) {return false;}
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
@@ -18,7 +19,7 @@ $(document).ready(function()
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     $(document).on('click', 'a[href^="#"]', function (event) {
         event.preventDefault();
-    
+
         if(!isMobile())
         {
             $('html, body').animate({
@@ -37,8 +38,8 @@ $(document).ready(function()
            $(".navbar").css({"display":"none","left":"-40%"});
            $("#nav-trig").removeClass("change");
            $(".navbar-overlay").css("display", "none");
-           $(".mainbody").fadeTo("normal", 1); 
-           isNavShow=false;  
+           $(".mainbody").fadeTo("normal", 1);
+           isNavShow=false;
         }
     });
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -50,7 +51,7 @@ $(document).ready(function()
     // side scroll navbar
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    
+
     $(window).scroll(function()
     {
         if(!isMobile())
@@ -73,15 +74,15 @@ $(document).ready(function()
     {
         $(this).toggleClass("change");
         //var z = $(".navbar").css("display");
-        if(!isNavShow) 
+        if(!isNavShow)
         {
-            $(".navbar").css("display", "grid"); 
+            $(".navbar").css("display", "grid");
             $(".navbar").animate({left: '+=40%'});
             //$(".mainbody").fadeTo("normal", 0.5);
             $(".navbar-overlay").css("display", "block");
             isNavShow=true;
         }
-        else 
+        else
         {
             $(".navbar").animate({left: '-=40%'});
             /*$(".navbar").css("display", "none");*/
@@ -89,7 +90,7 @@ $(document).ready(function()
             $(".navbar-overlay").css("display", "none");
             isNavShow=false;
         }
-        
+
     });
     $(".navbar-overlay").click(function()
     {

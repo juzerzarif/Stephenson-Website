@@ -1,3 +1,11 @@
+//
+// determine if device is a mobile device or not
+//
+function isMobile()
+{
+    if(/iPad/i.test(navigator.userAgent) && $(window).width() > 980) {return false;}
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 
 $(document).ready(function()
 {
@@ -7,13 +15,13 @@ $(document).ready(function()
         else { $(".mainbody").css("margin-top", $(".mobile-nav").height()); }
     });
 
-    
+
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Title card sizing based on content
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    
+
     $(window).bind("resize load", function(){
         let y = $("#heading").height() + $("#intro").height();
         console.log(y);
