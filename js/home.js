@@ -6,7 +6,7 @@ let access = true;
 //
 // determine if device is a mobile device or not
 //
-function isMobile() 
+function isMobile()
 {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
@@ -15,20 +15,20 @@ function isMobile()
 // jQuery function to determine if an element is entriely on screen. Will return false if element is even partially off-screen
 //
 $.fn.isOnScreen = function(){
-    
+
         var win = $(window);
-    
+
         var viewport = {
             top : win.scrollTop() + 40,
             left : win.scrollLeft()
         };
         viewport.right = win.scrollLeft() + win.width();
         viewport.bottom = win.scrollTop() + win.height();
-    
+
         var bounds = this.offset();
         bounds.horizontalLimit = bounds.left + (this.outerWidth()/2);
         bounds.verticalLimit = bounds.top + (this.outerHeight()/2);
-    
+
         return (!(viewport.right < bounds.horizontalLimit || viewport.left > bounds.horizontalLimit || viewport.bottom < bounds.verticalLimit || viewport.top > bounds.verticalLimit));
     };
 
@@ -63,7 +63,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var player;
-function onYouTubeIframeAPIReady() 
+function onYouTubeIframeAPIReady()
 {
     console.log("youtube api ready");
     player = new YT.Player('welcomeVideo', {
@@ -80,15 +80,15 @@ function onPlayerStateChange(event)
     if(status == 0) { vidPause = true; console.log("video end: "+vidPause); } //VIDEO ENDED
     else if(status == 1) { vidPause = false; console.log("video play: "+vidPause); } //VIDEO IS PLAYING
     else if(status == 2) //VIDEO IS PAUSED
-    { 
-        vidPause = true; console.log("video pause: "+vidPause); 
+    {
+        vidPause = true; console.log("video pause: "+vidPause);
     }
 }
 
 //Soft Pause Youtube video
-function pauseYTVideo() 
+function pauseYTVideo()
 {
-    player.pauseVideo(); 
+    player.pauseVideo();
     setTimeout(function(){
         vidPause=false; console.log("video soft pause: "+vidPause);
     }, 100);
@@ -103,14 +103,14 @@ function pauseYTVideo()
 //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 $(document).ready(function(){
-    
+
     $(window).load(function()
     {
         if(!isMobile()) { $(".mainbody").css("margin-top", ($(".navbar").height() + 30)); }
-        else { $(".mainbody").css("margin-top", $(".mobile-nav").height()); }    
+        else { $(".mainbody").css("margin-top", $(".mobile-nav").height()); }
     });
-    
-    
+
+
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Video pause on navbar trigger on mobile
@@ -134,8 +134,20 @@ $(document).ready(function(){
         navToggle = false;
         if(!vidPause) { player.playVideo(); }
     });
+    $(document).on('click', 'a[href^="#"]', function (event)
+    {
+        event.preventDefault();
+        if(isMobile())
+        {
+          navToggle = false;
+          if(!vidPause)
+          {
+            player.playVideo();
+          }
+        }
+    });
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-    //-------------------------------------------------------------------------------------------------------------------------------------------------------------    
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -162,7 +174,7 @@ $(document).ready(function(){
 
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-     
+
 
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -180,7 +192,7 @@ $(document).ready(function(){
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    
+
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Parallax scrolling code
@@ -217,5 +229,5 @@ $(document).ready(function(){
     });
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-    
+
 });
