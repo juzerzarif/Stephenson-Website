@@ -66,6 +66,7 @@ Division 2 - Info
 #accordion > h3
 {
     font-size: 1.5em;
+    outline: none;
 }
 .image-grid
 {

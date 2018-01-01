@@ -9,8 +9,10 @@
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/rooms.css">
         <link rel="stylesheet" type="text/css" href="css/navbar.css">
+        <link rel="stylesheet" type="text/css" href="css/animation.css">
 
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="js/image-map.js"></script>
         <script src="js/rooms.js"></script>
         <script src="js/navbar.js"></script>
     </head>
@@ -39,19 +41,71 @@
             </grid-container>
         </section>
 
+        <div class="overlay"></div>
+        <div class="dialog" id="beds-dialog">
+            <div id="dialog-content">
+                <p>Beds</p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+            <button>Close</button>
+        </div>
+
         <grid-container class="mainbody">
 
             <div class="title">
-                Coming Soon!
+                <element id="heading">TAKE A LOOK!</element>
+                <p id="intro">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
             </div>
 
             <div class="info">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                </p>
+                <div class="slideshow">
+                    <img class="slide fade" id="room-map" src="resources/sample.png" usemap="#tourmap">
+                    <img class="slide fade" src="resources/rooms/slide2.jpg">
+                    <img class="slide fade" src="resources/rooms/slide3.jpg">
+                    <img class="slide fade" src="resources/rooms/slide4.jpg">
+                    <img class="slide fade" src="resources/rooms/slide5.jpg">
+
+                    <a class="prev">&#10094;</a>
+                    <a class="next">&#10095;</a>
+                </div>
+                <map name="tourmap">
+                    <area id="beds" href="#" shape="poly" coords="900,771,807,626,806,601,806,591,808,580,813,567,821,553,831,542,845,530,858,525,880,521,903,522,925,529,941,542,954,556,963,577,967,603,965,622,944,680" />
+                </map>
             </div>
 
             <div class="ownership">
                 &copy 2017 by Juzer Zarif<br>
                 Property of the Lylemen of Stephenson
-                <button id="toTop"><img src="resources/shifts/uparrow.png"></button>
+                <button id="toTop"><img src="resources/rooms/uparrow.png"></button>
             </div>
 
         </grid-container>

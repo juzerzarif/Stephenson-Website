@@ -13,7 +13,7 @@ Main body
 {
     display: grid;
     grid-template-columns: minmax(720px, 100%);
-    grid-template-rows: max-content max-content minmax(5vh, 3em);
+    grid-template-rows: max-content max-content 3em;
     width: 100%;
     min-width: 720px;
     height: 100%;
@@ -21,7 +21,174 @@ Main body
 @media only screen
 and (max-device-width: 980px)
 {
-    .mainbody { grid-template-rows: auto auto minmax(5vh, 3em); }
+    .mainbody { grid-template-rows: max-content max-content 3em; }
+}
+
+/*---------------------------------------------------------------
+Overlay 
+-----------------------------------------------------------------*/
+.overlay
+{
+    display: none;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    filter: alpha(opacity=50);
+    -moz-opacity:0.5; 
+	-khtml-opacity: 0.5; 
+	opacity: 0.5;
+    background-color: black;
+    position: fixed;
+}
+
+/*---------------------------------------------------------------
+Dialog boxes
+-----------------------------------------------------------------*/
+.dialog
+{
+    display: none;
+    z-index: 20;
+    width: 28vw;
+    min-width: 480px;
+    height: 40vh;
+    min-height: 500px;
+
+    margin: auto;
+    padding: 2em;
+    top: 0; left: 0; bottom: 0; right: 0;
+    position: fixed;
+
+    background-color: white;
+    border-radius: 2em;
+    box-shadow: 0 0 2em black;
+}
+.dialog > #dialog-content
+{
+    overflow-wrap: break-word; 
+    overflow-y: auto;
+    max-height: 35vh;
+    min-height: 450px;
+    font-family: "Nunito Sans", sans-serif;
+}
+.dialog > #dialog-content > p
+{
+    font-size: 2em;
+    font-weight: 900;
+    border-bottom: 1px solid black;
+}
+.dialog > button
+{
+    display: block;
+    margin:10px auto 0;
+    padding: 1em;
+    background-color: #E93939;
+    color: white;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+}
+@media only screen
+and (max-device-width: 980px)
+{
+    .dialog { width: 720px; height: 1000px; }
+    .dialog > #dialog-content { height: 900px; max-height: 900px;}
+    .dialog > #dialog-content > p { font-size: 3em; margin-top: 0;}
+    .dialog > #dialog-content { font-size: 2em; font-weight: 400; }
+    .dialog > button { font-size: 2em; }
+}
+
+/*---------------------------------------------------------------
+Division 1 - Title
+-----------------------------------------------------------------*/
+.title
+{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
+    background-image: url("../resources/rooms/background.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    padding: 1em;
+}
+.title > #heading
+{
+    font-size: 4em;
+    font-weight: 900;
+    color: #E5D3B7;
+    -webkit-text-stroke: 0.05em black;
+}
+@media only screen
+and (max-device-width: 980px)
+{
+    .title { font-size: 2em; }
+}
+
+/*---------------------------------------------------------------
+Division 2A - Info
+-----------------------------------------------------------------*/
+.info
+{
+    display: block;
+    height: auto;
+    background-color: #d89c3d;
+}
+.info > p { padding: 0 1em; }
+.slideshow 
+{
+    position: relative; 
+    display: grid;
+    align-content: center;
+    background-color: black;
+}
+.slideshow > .slide
+{
+    display: none;
+    width: 100%;
+    height: auto;
+    left: 0;
+}
+//#room-map {display: block;}
+.prev, .next
+{
+    position: absolute;
+    top: 50%;
+    padding: 0.5em;
+    color: white;
+    background-color: black;
+    font-size: 2em;
+    cursor: pointer;
+    //transition: 0.6s ease;
+}
+.next {right: 0;}
+.fade 
+{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1s;
+    animation-name: fade;
+    animation-duration: 1s;
+}
+ @-webkit-keyframes fade 
+{
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+@keyframes fade 
+{
+    from {opacity: 0.5} 
+    to {opacity: 1}
+}
+area {outline: none;}
+@media only screen
+and (max-device-width: 980px)
+{
+    .info > p {font-size: 2em;}
+    .prev, .next {font-size: 3em; top: 40%;}
 }
 
 /*---------------------------------------------------------------
@@ -37,7 +204,7 @@ Division 3 - Ownership and Creator
     font-weight: bold;
     font-size: 1em;
 }
-.ownership img {height: 80%; width: auto;}
+.ownership img {height: 100%; width: auto;}
 .ownership button
 {
     border: 0;
@@ -45,9 +212,10 @@ Division 3 - Ownership and Creator
     box-shadow: none;
     cursor: pointer;
     height: 3em;
-    min-height: 5vh;
+    //min-height: 5vh;
     width: 3em;
-    min-width: 5vh;
+    //min-width: 5vh;
+    padding: 0;
 }
 @media only screen
 and (max-device-width: 980px) 
