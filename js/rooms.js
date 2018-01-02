@@ -1,3 +1,8 @@
+$(window).load(function()
+{
+    $(".pre-load").fadeOut("slow");
+});
+
 var slideNum = 0;
 
 //
@@ -22,15 +27,13 @@ function showSlide(num)
 
 $(document).ready(function()
 {
+    if(!isMobile()) { $(".mainbody").css("margin-top", ($(".navbar").height() + 30)); }
+    else { $(".mainbody").css("margin-top", $(".mobile-nav").height()); }
+    
     showSlide(0);
 
     $('img[usemap]').imageMap();
 
-    $(window).load(function()
-    {
-        if(!isMobile()) { $(".mainbody").css("margin-top", ($(".navbar").height() + 30)); }
-        else { $(".mainbody").css("margin-top", $(".mobile-nav").height()); }
-    });
 
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -41,8 +44,8 @@ $(document).ready(function()
     {
         if(!isMobile())
         {
-            horizontalOver = ($(window).width() < 720);
-            verticalOver = ($(window).height() < 900);
+            horizontalOver = ($(window).width() < 580);
+            verticalOver = ($(window).height() < 600);
             let x = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft;
             let y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
             let offsetX = -x + 50 + "px";
@@ -69,8 +72,15 @@ $(document).ready(function()
     $("area").click(function(e)
     {
         e.preventDefault();
+        isHorizontalOver = ($(window).width() < 580);
+        isVerticalOver = ($(window).height() < 600);
         id = "#" + $(this).attr("id") + "-dialog";
         console.log(id);
+        console.log($(window).width());
+        console.log($(window).height());
+        if(isHorizontalOver) { $(window).scrollLeft(0); }
+        if(isVerticalOver) { $(window).scrollTop(0); }
+        
         $(".overlay").css("display", "block");
         $(id).css("display", "block");
         $(id).addClass("transform-out");

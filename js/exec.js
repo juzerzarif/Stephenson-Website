@@ -1,3 +1,10 @@
+//
+//fades out pre-loader after page is ready
+//
+$(window).load(function()
+{
+    $(".pre-load").fadeOut("slow");
+});
 
 //
 // determine if device is a mobile device or not
@@ -70,8 +77,8 @@ $(document).ready(function()
     {
         if(!isMobile())
         {
-            horizontalOver = ($(window).width() < 720);
-            verticalOver = ($(window).height() < 900);
+            horizontalOver = ($(window).width() < 580);
+            verticalOver = ($(window).height() < 740);
             let x = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft;
             let y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
             let offsetX = -x + 50 + "px";
@@ -97,11 +104,20 @@ $(document).ready(function()
 
     $(".member img").click(function()
     {
+        isHorizontalOver = ($(window).width() < 580);
+        isVerticalOver = ($(window).height() < 740);
         id = "#" + $(this).attr("id") + "-dialog";
         console.log(id);
+        console.log("width: "+$(window).width());
+        console.log("height: "+$(window).height());
+        
+        if(isHorizontalOver) { $(window).scrollLeft(0); }
+        if(isVerticalOver) { $(window).scrollTop(0); }
+        
         $(".overlay").css("display", "block");
         $(id).css("display", "block");
         $(id).addClass("transform-out");
+    
         setTimeout(function(){ $(id).removeClass("transform-out"); }, 700);
     });
 
@@ -115,6 +131,7 @@ $(document).ready(function()
         }, 400);
 
         $(".overlay").css("display", "none");
+        //$("body").css("overflow", "auto");
     });
 
     $(".overlay").click(function()
@@ -127,6 +144,7 @@ $(document).ready(function()
         }, 400);
 
         $(".overlay").css("display", "none");
+        //$("body").css("overflow", "auto");
     });
 
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------

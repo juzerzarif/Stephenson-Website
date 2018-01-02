@@ -16,7 +16,7 @@ Main body grid
     z-index: 2;
     display: grid;
     grid-template-columns: minmax(720px, 100%);
-    grid-template-rows: 102vh auto minmax(102vh, auto) auto minmax(5vh, 3em);
+    grid-template-rows: 102vh auto minmax(102vh, auto) auto 3em;
     grid-gap: 0px;
 }
 @media only screen 
@@ -24,7 +24,7 @@ and (max-device-width: 980px)
 {
     .mainbody
     {
-        grid-template-rows: 102vh auto 56.25vw auto 5vh;
+        grid-template-rows: 102vh auto 56.25vw auto 3em;
     }
 }
 
@@ -183,7 +183,7 @@ and (max-device-width: 980px)
         margin-right: 0px;
         padding: 0 0 12px 12px;
     }
-    .address img {width: 20%; min-width: 5em; height: auto;}
+    .address img {width: 20%; min-width: 5em; height: auto; border-radius: 50%;}
     .address h1 {font-weight: 900;}
     @media only screen
     and (max-device-width: 980px)
@@ -267,16 +267,14 @@ Division 5 - Ownership and Creator
 .div5
 {
     display: flex;
-    align-items: center;
-    vertical-align: middle;
     justify-content: space-between;
-    padding: 5px;
+    padding: 10px 5px;
 
     font-family: "Ubuntu", sans-serif;
     font-weight: bold;
     font-size: 1em;
 }
-.div5 img {height: 80%; width: auto;}
+.div5 img {height: 100%; width: auto;}
 .div5 button
 {
     border: 0;
@@ -284,9 +282,8 @@ Division 5 - Ownership and Creator
     box-shadow: none;
     cursor: pointer;
     height: 3em;
-    min-height: 5vh;
     width: 3em;
-    min-width: 5vh;
+    padding: 0;
 }
 @media only screen
 and (max-device-width: 980px) 

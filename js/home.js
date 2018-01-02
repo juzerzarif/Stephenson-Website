@@ -4,6 +4,14 @@ let focus = true;
 let access = true;
 
 //
+//fades out pre-loader after page is ready
+//
+$(window).load(function()
+{
+    $(".pre-load").fadeOut("slow");
+});
+
+//
 // determine if device is a mobile device or not
 //
 function isMobile()
@@ -204,7 +212,7 @@ $(document).ready(function(){
     $('div.background').each(function(){
         if(!isMobile())
         {
-            var scroll_speed = 4;
+            var scroll_speed = 3;
             var $this = $(this);
             $(window).scroll(function() {
                 var bgScroll = -(($win.scrollTop() - $this.offset().top)/ scroll_speed);

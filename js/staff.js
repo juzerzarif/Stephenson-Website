@@ -1,4 +1,12 @@
 //
+//fades out pre-loader after page is ready
+//
+$(window).load(function()
+{
+    $(".pre-load").fadeOut("slow");
+});
+
+//
 // determine if device is a mobile device or not
 //
 function isMobile()
