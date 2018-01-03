@@ -19,15 +19,17 @@ function isMobile()
 $(document).ready(function()
 {
 
-    $(window).load(function()
+    if(!isMobile()) { $(".mainbody").css("margin-top", ($(".navbar").height() + 30)); }
+    else 
+    { 
+        $(".mainbody").css("margin-top", $(".mobile-nav").height()); 
+        $(".member").remove("br");
+        $(".member").append("<br>");
+    }
+    $(window).resize(function()
     {
         if(!isMobile()) { $(".mainbody").css("margin-top", ($(".navbar").height() + 30)); }
-        else
-        {
-            $(".mainbody").css("margin-top", $(".mobile-nav").height());
-            $(".member").remove("br");
-            $(".member").append("<br>");
-        }
+        else { $(".mainbody").css("margin-top", $(".mobile-nav").height()); }
     });
 
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
