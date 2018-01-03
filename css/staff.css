@@ -62,7 +62,7 @@ Division 2 - Info
 .info
 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(576px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-auto-rows: auto;
     grid-gap: 2em;
 
@@ -75,7 +75,7 @@ Division 2 - Info
     display: grid;
     justify-content: center;
     justify-items: center;
-    background-color: #AAAAAA;
+    background-color: #006A8D;
     border-radius: 2em;
     border: 1px solid black;
 }
@@ -87,16 +87,16 @@ Division 2 - Info
     padding: 1em;
     margin-bottom: 1em;
 }
-.member > position { font-size: 2em; font-weight: 700; }
+.member > position { font-size: 2em; font-weight: 700; color: white; text-align: center; padding: 0 16px; }
 .member > name
 {
     font-size: 1.5em;
     font-weight: 600;
-    color: #E5D3B7;
+    color: #D89C3D;
     text-shadow: 0 0 0.5em black;
 }
-.member > #about, .member > #description { padding: 1.5em 0; margin: 0 1.5em; }
-.member > #description > name { font-size: 1.5em; font-weight: 600; }
+.member > #about, .member > #description { padding: 1.5em 0; margin: 0 1.5em; color: #BEBEBE; }
+.member > #description > name { font-size: 1.5em; font-weight: 600; color: white; }
 @media only screen
 and (max-device-width: 980px)
 {
