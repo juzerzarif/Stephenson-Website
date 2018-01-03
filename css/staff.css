@@ -85,7 +85,7 @@ Division 2 - Info
     width: auto;
     border-radius: 50%;
     padding: 1em;
-    margin-bottom: 1em;
+    margin-top: 1em; margin-bottom: 1em;
 }
 .member > position { font-size: 2em; font-weight: 700; color: white; text-align: center; padding: 0 16px; }
 .member > name

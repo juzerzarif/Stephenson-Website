@@ -3,6 +3,7 @@
 //
 $(window).load(function()
 {
+    $("#spinner").fadeOut("slow");
     $(".pre-load").fadeOut("slow");
 });
 
@@ -17,7 +18,9 @@ function isMobile()
 
 $(document).ready(function()
 {
-    $(window).load(function()
+    if(!isMobile()) { $(".mainbody").css("margin-top", ($(".navbar").height() + 30)); }
+    else { $(".mainbody").css("margin-top", $(".mobile-nav").height()); }
+    $(window).resize(function()
     {
         if(!isMobile()) { $(".mainbody").css("margin-top", ($(".navbar").height() + 30)); }
         else { $(".mainbody").css("margin-top", $(".mobile-nav").height()); }

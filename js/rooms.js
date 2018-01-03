@@ -1,5 +1,6 @@
 $(window).load(function()
 {
+    $("#spinner").fadeOut("slow");
     $(".pre-load").fadeOut("slow");
 });
 
