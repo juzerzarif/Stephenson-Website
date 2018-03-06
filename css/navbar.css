@@ -3,7 +3,7 @@
 .navbar{display:grid;grid-template-columns:67px repeat(9, 1fr);overflow:auto;background:#333;color:white;font-family:"Montserrat", sans-serif;font-weight:600;position:fixed;z-index:3;top:0;width:100%;min-width:720px;padding-top:16px;padding-bottom:14px;}
 .navbar a grid-item{color:white;float:left;display:block;text-align:center;text-decoration:none;}
 .navbar a grid-item:hover{color:gray;}
-.navbar grid-item img{background-color:blanchedalmond;min-width:67px;width:67px;}
+.navbar grid-item img{min-width:67px;width:67px;}
 #image{margin-top:-16px;margin-bottom:-14px;}
 .navbar a{display:flex;align-items:center;justify-content:center;text-decoration:none;}
 .navbar a:not(:last-of-type){border-right:1px solid #fff;}
