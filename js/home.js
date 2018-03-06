@@ -114,13 +114,13 @@ function pauseYTVideo()
 
 $(document).ready(function(){
 
-    if(!isMobile()) { $(".mainbody").css("margin-top", ($(".navbar").height() + 30)); }
+    /*if(!isMobile()) { $(".mainbody").css("margin-top", ($(".navbar").height() + 30)); }
     else { $(".mainbody").css("margin-top", $(".mobile-nav").height()); }
     $(window).resize(function()
     {
         if(!isMobile()) { $(".mainbody").css("margin-top", ($(".navbar").height() + 30)); }
         else { $(".mainbody").css("margin-top", $(".mobile-nav").height()); }
-    });
+    });*/
 
 
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
